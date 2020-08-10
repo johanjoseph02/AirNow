@@ -3,10 +3,12 @@
 # Team members: JOHAN MATHEW JOSEPH, ADVAY SAI INABATHINI, ADIT POTNIS               #
 # Project: AirNow (Airline Reservation System)                                       #
 # Version: v1.0                                                                      #
-# Total lines of code: 1,300                                                         #
+# Total lines of code: 1,288                                                         #
 #                                                                                    #
 #====================================================================================#
 #BELT A COMMENT HERE EVERYTIME YOU PUSH
+# Changed the importing part, using cmd directly to install instead of IDLE, lines of code down to 1288
+
 #importing modules and catching exceptions
 try:
     from tkinter import *
@@ -16,69 +18,61 @@ except:
     from Tkinter import *
     from Tkinter import ttk
     from Tkinter import messagebox
+
 import datetime
 import calendar
+import subprocess
 
 try:
-    import pip
-
     #installing tkcalendar if not present
     try:
         from tkcalendar import *
     except:
-        pip.main(['install','tkcalendar'])#Installing tkcalendar
-        from tkcalendar import *
-
+        try:
+            print("=====================================\n\nInstalling tkcalendar (required for project) (1)\n\n=====================================")
+            subprocess.Popen("pip install tkcalendar").wait()#Installing tkcalendar using cmd
+            from tkcalendar import *
+        except:
+            print("=====================================\n\nInstalling tkcalendar (required for project) (2)\n\n=====================================")
+            subprocess.Popen("python -m pip install tkcalendar").wait()#Installing tkcalendar using cmd
+            from tkcalendar import *
+    
     #installing Pillow if not present
     try:
         from PIL import ImageTk, Image
     except:
-        pip.main(['install','Pillow'])#Installing Pillow
-        from PIL import ImageTk, Image
+        try:
+            print("=====================================\n\nInstalling Pillow (required for project) (1)\n\n=====================================")
+            subprocess.Popen("pip install Pillow").wait()#Installing Pillow using cmd
+            from PIL import ImageTk, Image
+        except:
+            print("=====================================\n\nInstalling Pillow (required for project) (2)\n\n=====================================")
+            subprocess.Popen("python -m pip install Pillow").wait()#Installing Pillow using cmd
+            from PIL import ImageTk, Image
 
-    #try installing mysql-connector-python if not present
+    #installing mysql-connector-python if not present
     try:
         import mysql.connector
     except:
-        pip.main(['install','mysql-connector-python'])#Installing mysql-connector-python
-        import mysql.connector
+        try:
+            print("=====================================\n\nInstalling mysql-connector-python (required for project) (1)\n\n=====================================")
+            subprocess.Popen("pip install mysql-connector-python").wait()#Installing mysql-connector-python using cmd
+            import mysql.connector
+        except:
+            print("=====================================\n\nInstalling mysql-connector-python (required for project) (2)\n\n=====================================")
+            subprocess.Popen("python -m pip install mysql-connector-python").wait()#Installing mysql-connector-python using cmd
+            import mysql.connector
 
 except:
-    try:
-        from pip._internal import main
-
-        #installing tkcalendar if not present
-        try:
-            from tkcalendar import *
-        except:
-            main(['install','tkcalendar'])#Installing tkcalendar
-            from tkcalendar import *
-
-        #installing Pillow if not present
-        try:
-            from PIL import ImageTk, Image
-        except:
-            main(['uninstall',"-y",'Pillow'])#Installing Pillow
-            main(['uninstall',"-y",'PIL'])#Installing Pillow
-            main(['install','Pillow'])#Installing Pillow
-            from PIL import ImageTk, Image
-
-        #try installing mysql-connector-python if not present
-        try:
-            import mysql.connector
-        except:
-            main(['install','mysql-connector-python'])#Installing mysql-connector-python
-            import mysql.connector
-    except:
-        print("===============================================================================")
-        print("===============================================================================")
-        print("\nERROR WHILE IMPORTING SOME MODULES, KINDLY CONTACT DEVELOPER IMMEDIATELY")
-        print("\nPotential reason: Module Deprecated")
-        print("\nTeam Members:\nJohan Mathew Joseph\nAdvay Sai Inabathini\nAdit Potnis")
-        print("\n===============================================================================")
-        print("===============================================================================")
-        exit()
-
+    print("===============================================================================")
+    print("===============================================================================")
+    print("\nPLEASE HAVE A STABLE INTERNET CONNECTION")
+    print("\nError while importing some modules, kindly contact developer immediately")
+    print("\nkindy look into the \"INSTRUCTIONS README.txt\" file attached if this has occured")
+    print("\nTeam Members:\nJohan Mathew Joseph\nAdvay Sai Inabathini\nAdit Potnis")
+    print("\n===============================================================================")
+    print("===============================================================================")
+    exit()
 #======================================================================================================================================
 #PROGRESS BAR
 
