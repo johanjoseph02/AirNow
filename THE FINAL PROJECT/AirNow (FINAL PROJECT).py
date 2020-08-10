@@ -6,7 +6,7 @@
 # Total lines of code: 1,300                                                         #
 #                                                                                    #
 #====================================================================================#
-#ok this is a change AGAIN
+#importing modules and catching exceptions
 try:
     from tkinter import *
     from tkinter import ttk
