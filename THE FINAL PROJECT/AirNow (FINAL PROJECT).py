@@ -6,6 +6,7 @@
 # Total lines of code: 1,300                                                         #
 #                                                                                    #
 #====================================================================================#
+#BELT A COMMENT HERE EVERYTIME YOU PUSH
 #importing modules and catching exceptions
 try:
     from tkinter import *
