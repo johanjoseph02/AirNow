@@ -3,11 +3,11 @@
 # Team members: JOHAN MATHEW JOSEPH, ADVAY SAI INABATHINI, ADIT POTNIS               #
 # Project: AirNow (Airline Reservation System)                                       #
 # Version: v1.0                                                                      #
-# Total lines of code: 1,288                                                         #
+# Total lines of code: 1,295                                                         #
 #                                                                                    #
 #====================================================================================#
 #BELT A COMMENT HERE EVERYTIME YOU PUSH
-# Changed the importing part, using cmd directly to install instead of IDLE, lines of code down to 1288
+# Changed the importing part, using cmd directly to install instead of IDLE, lines of code down to 1295
 
 #importing modules and catching exceptions
 try:
