@@ -7,6 +7,10 @@
 #                                                                                    #
 #====================================================================================#
 #BELT A COMMENT HERE EVERYTIME YOU PUSH
+#changed ui colors
+    #000E20 dark
+    #001F4B semi dark
+    #38B7FE light
 # Changed the importing part, using cmd directly to install instead of IDLE, lines of code down to 1295
 
 #importing modules and catching exceptions
@@ -136,7 +140,7 @@ def JMJDisplay(displayText, heightinput, widthinput, textsizeinput, padyinput):
 
     display.resizable(0,0)
 
-    display.after(2300, display.destroy) #destroy window after 1000 milliseconds
+    display.after(3000, display.destroy) #destroy window after 1000 milliseconds
 
     display_mainLabel = Label(display, text=displayText, font=("Century Gothic", textsizeinput), bg="#000e20", fg="white", bd=0)
     display_mainLabel.pack(pady=padyinput)
@@ -152,7 +156,7 @@ def JMJSql():
     sqlpass.attributes("-topmost", True)
     sqlpass.title("AirNow: MySQL Password")
     sqlpass.iconbitmap("Airicon_final.ico")
-    sqlpass.configure(bg='#2b2b2b')
+    sqlpass.configure(bg='#000E20')
 
     def sqlpass_Xpress():
         sqlpass.destroy()
@@ -171,13 +175,13 @@ def JMJSql():
     sqlpass.resizable(0,0)
 
     #Outter elements
-    sqlpass_mainLabel = Label(sqlpass, text="MySQL server password:", font=("Century Gothic", 20), fg="white", bg="#2b2b2b")
+    sqlpass_mainLabel = Label(sqlpass, text="MySQL server password:", font=("Century Gothic", 20), fg="white", bg="#000E20")
     sqlpass_mainLabel.pack(anchor=W, padx=20, pady=20)
 
-    sqlpass_passwordInput = Entry(sqlpass, font=("Century Gothic", 14), bg="#e8e8e8", fg="black", bd=0, width=29, show="*")
+    sqlpass_passwordInput = Entry(sqlpass, font=("Century Gothic", 14), bg="#001F4B", fg="#38B7FE", bd=0, width=29, show="*")
     sqlpass_passwordInput.pack(anchor=W, padx=20)
 
-    sqlpass_noteLabel = Label(sqlpass, text="Note: If no password is set, just click OK", font=("Century Gothic", 10), fg="white", bg="#2b2b2b")
+    sqlpass_noteLabel = Label(sqlpass, text="Note: If no password is set, just click OK", font=("Century Gothic", 10), fg="#38B7FE", bg="#000E20")
     sqlpass_noteLabel.pack(anchor=W, padx=20, pady=(5,10))
 
     def sqlpass_okButton_command():
@@ -185,7 +189,7 @@ def JMJSql():
         sqlpass_okButton_getvalue = sqlpass_passwordInput.get()
         sqlpass.destroy()
 
-    sqlpass_okButton = Button(sqlpass, text="Ok", font=("Century Gothic", 15), bg="#595959", fg="white", bd=0, width=15, cursor="hand2", command=sqlpass_okButton_command)
+    sqlpass_okButton = Button(sqlpass, text="Ok", font=("Century Gothic", 15), bg="#38B7FE", fg="white", bd=0, width=15, cursor="hand2", command=sqlpass_okButton_command)
     sqlpass_okButton.pack()
 
     sqlpass.mainloop()
@@ -306,7 +310,7 @@ def JMJSplashScreen():
     splash.attributes("-alpha", 0.0)#making window transparent before GUI loads
     splash.after(0, splash.attributes, "-alpha", 1.0)
     splash.attributes("-topmost", True)
-    splash.configure(bg="#2b2b2b")
+    splash.configure(bg="#000E20")
     splash.overrideredirect(True)
 
     #position in centre
@@ -341,7 +345,7 @@ def JMJNewUser():
     signup.attributes("-topmost", True)
     signup.title("AirNow: Create New Account")
     signup.iconbitmap("Airicon_final.ico")
-    signup.configure(bg='#2b2b2b')
+    signup.configure(bg='#000E20')
 
     def signup_Xpress():
         login.destroy()
@@ -365,14 +369,14 @@ def JMJNewUser():
         signup.destroy()
         login.deiconify()
 
-    signup_backButton = Button(signup, text="<", font=("Century Gothic", 30), bg="#2b2b2b", fg="white", bd=0, activebackground="#2b2b2b", activeforeground="#595959", width=0,  cursor='hand2', command=signup_backButton_command)
+    signup_backButton = Button(signup, text="<", font=("Century Gothic", 30), bg="#000E20", fg="white", bd=0, activebackground="#000E20", activeforeground="#001F4B", width=0,  cursor='hand2', command=signup_backButton_command)
     signup_backButton.grid(row=0, column=0, sticky=W, padx=(3,10), pady=5)
 
-    signup_createaccountLabel = Label(signup, text="Create Account", font=("Century Gothic", 30), fg="white", bg="#2b2b2b")
+    signup_createaccountLabel = Label(signup, text="Create Account", font=("Century Gothic", 30), fg="white", bg="#000E20")
     signup_createaccountLabel.grid(row=0, column=0, sticky=E, padx=(0,260), pady=5)
 
     #--->Creating signup searchFrm
-    signupFrm = LabelFrame(signup, bg="#595959", bd=0)
+    signupFrm = LabelFrame(signup, bg="#001F4B", bd=0)
     signupFrm.grid(row=1, column=0, sticky=W, padx=20)
     #--->
 
@@ -402,26 +406,26 @@ def JMJNewUser():
         elif(signupFrm_passwordInput_getvalue != signupFrm_cpasswordInput_getvalue):
             messagebox.showerror("AirNow: Error", "Passwords dont match")
 
-    signup_signupButton = Button(signup, text="Sign Up", font=("Century Gothic", 15), bg="#595959", fg="white", bd=0, width=20,  cursor='hand2', command=signup_signupButton_command)
+    signup_signupButton = Button(signup, text="Sign Up", font=("Century Gothic", 15), bg="#38B7FE", fg="white", bd=0, width=20,  cursor='hand2', command=signup_signupButton_command)
     signup_signupButton.grid(row=2, column=0, pady=20)
 
     #Signup Frame elements
-    signupFrm_usernameLabel = Label(signupFrm, text="Username", font=("Century Gothic", 15), fg="white", bg="#595959")
+    signupFrm_usernameLabel = Label(signupFrm, text="Username", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     signupFrm_usernameLabel.grid(row=0, column=0,padx=(100,10), pady=(30,10), sticky=E)
 
-    signupFrm_usernameInput = Entry(signupFrm, font=("Century Gothic", 14), bg="#2b2b2b", fg="white", bd=0, width=25)
+    signupFrm_usernameInput = Entry(signupFrm, font=("Century Gothic", 14), bg="#000E20", fg="white", bd=0, width=25)
     signupFrm_usernameInput.grid(row=0, column=1, padx=(0, 80), pady=(30,10))
 
-    signupFrm_passwordLabel = Label(signupFrm, text="Password", font=("Century Gothic", 15), fg="white", bg="#595959")
+    signupFrm_passwordLabel = Label(signupFrm, text="Password", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     signupFrm_passwordLabel.grid(row=1, column=0, padx=(100,10), pady=(10,10), sticky=E)
 
-    signupFrm_passwordInput = Entry(signupFrm, font=("Century Gothic", 14), bg="#2b2b2b", fg="white", bd=0, width=25, show="*")
+    signupFrm_passwordInput = Entry(signupFrm, font=("Century Gothic", 14), bg="#000E20", fg="white", bd=0, width=25, show="*")
     signupFrm_passwordInput.grid(row=1, column=1, padx=(0, 80), pady=(10,10))
 
-    signupFrm_cpasswordLabel = Label(signupFrm, text="Confirm Password", font=("Century Gothic", 15), fg="white", bg="#595959")
+    signupFrm_cpasswordLabel = Label(signupFrm, text="Confirm Password", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     signupFrm_cpasswordLabel.grid(row=2, column=0, padx=(60,10), pady=(10,30), sticky=E)
 
-    signupFrm_cpasswordInput = Entry(signupFrm, font=("Century Gothic", 14), bg="#2b2b2b", fg="white", bd=0, width=25, show="*")
+    signupFrm_cpasswordInput = Entry(signupFrm, font=("Century Gothic", 14), bg="#000E20", fg="white", bd=0, width=25, show="*")
     signupFrm_cpasswordInput.grid(row=2, column=1, padx=(0, 80), pady=(10,30))
     
     signup.mainloop()
@@ -438,7 +442,7 @@ def JMJLogin():
     login.attributes("-topmost", True)
     login.title("AirNow: Login")
     login.iconbitmap("Airicon_final.ico")
-    login.configure(bg='#2b2b2b')
+    login.configure(bg='#000E20')
 
     def login_Xpress():
         login.destroy()
@@ -457,11 +461,11 @@ def JMJLogin():
     login.resizable(0,0)
 
     #Outter elements
-    login_welcomeLabel = Label(login, text="Welcome!...Let's Log in", font=("Century Gothic", 30), fg="white", bg="#2b2b2b")
+    login_welcomeLabel = Label(login, text="Welcome!...Let's Log in", font=("Century Gothic", 30), fg="white", bg="#000E20")
     login_welcomeLabel.pack(anchor=W, padx=20, pady=20)
 
     #---> creating login searchFrm
-    loginFrm = LabelFrame(login, bg="#595959", bd=0)
+    loginFrm = LabelFrame(login, bg="#001F4B", bd=0)
     loginFrm.pack(anchor=W, padx=20)
     #---> 
 
@@ -472,7 +476,7 @@ def JMJLogin():
         loginFrm_passwordInput_getvalue = loginFrm_passwordInput.get()
         login.destroy()
 
-    login_loginButton = Button(login, text="Login", bg="#595959", fg="white", bd=0, width=20, font=("Century Gothic", 15), cursor="hand2", command=login_loginButton_command)
+    login_loginButton = Button(login, text="Login", bg="#38B7FE", fg="white", bd=0, width=20, font=("Century Gothic", 15), cursor="hand2", command=login_loginButton_command)
     login_loginButton.pack(pady=20)
 
     def login_createButton_command():
@@ -482,20 +486,20 @@ def JMJLogin():
         except:
             pass
 
-    login_createButton = Button(login, text="New here? Create an Account", bg="#595959", fg="white", bd=0, width=49, font=("Century Gothic", 15), cursor="hand2", command=login_createButton_command)
+    login_createButton = Button(login, text="New here? Create an Account", bg="#38B7FE", fg="white", bd=0, width=49, font=("Century Gothic", 15), cursor="hand2", command=login_createButton_command)
     login_createButton.pack(ipady=5, padx=20)
 
     #Login Frame elements
-    loginFrm_usernameLabel = Label(loginFrm, text="Username", font=("Century Gothic", 15), fg="white", bg="#595959")
+    loginFrm_usernameLabel = Label(loginFrm, text="Username", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     loginFrm_usernameLabel.grid(row=0, column=0, padx=(70,10), pady=(30,10))
 
-    loginFrm_usernameInput = Entry(loginFrm, width=30, font=("Century Gothic", 14), bg="#2b2b2b", fg="white", bd=0)
+    loginFrm_usernameInput = Entry(loginFrm, width=30, font=("Century Gothic", 14), bg="#000E20", fg="white", bd=0)
     loginFrm_usernameInput.grid(row=0, column=1, padx=(0, 70), pady=(30,10))
 
-    loginFrm_passwordLabel = Label(loginFrm, text="Password", font=("Century Gothic", 15), fg="white", bg="#595959")
+    loginFrm_passwordLabel = Label(loginFrm, text="Password", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     loginFrm_passwordLabel.grid(row=1, column=0, padx=(70,10), pady=(10,30))
 
-    loginFrm_passwordInput = Entry(loginFrm, width=30, font=("Century Gothic", 14), bg="#2b2b2b", fg="white", bd=0, show="*")
+    loginFrm_passwordInput = Entry(loginFrm, width=30, font=("Century Gothic", 14), bg="#000E20", fg="#38B7FE", bd=0, show="*")
     loginFrm_passwordInput.grid(row=1, column=1, padx=(0, 70), pady=(11,30))
 
     login.mainloop()
@@ -545,7 +549,7 @@ def JMJSearch(usernameinput):
     search.attributes("-topmost", True)
     search.title("AirNow: Search Flights")
     search.iconbitmap("Airicon_final.ico")
-    search.configure(bg='#2b2b2b')
+    search.configure(bg='#000E20')
 
     def search_Xpress():
         search.destroy()
@@ -565,21 +569,21 @@ def JMJSearch(usernameinput):
     search.resizable(0,0)
 
     #Outter elements
-    search_welcomeuserLabel = Label(search, text="Welcome "+usernameinput, font=("Century Gothic", 30), fg="white", bg="#2b2b2b")
+    search_welcomeuserLabel = Label(search, text="Welcome "+usernameinput, font=("Century Gothic", 30), fg="white", bg="#000E20")
     search_welcomeuserLabel.grid(row=0, column=0, columnspan=2, sticky=W, padx=50, pady=(20,15))
 
-    search_searchflightsLabel = Label(search, text="Search Flights:", font=("Century Gothic", 20), fg="white", bg="#2b2b2b")
+    search_searchflightsLabel = Label(search, text="Search Flights:", font=("Century Gothic", 20), fg="white", bg="#000E20")
     search_searchflightsLabel.grid(row=1, column=0, columnspan=2, sticky=W, padx=50, pady=(0,15))
 
     def search_exitButton_command():
         search.destroy()
         CalendarWindow.destroy()
 
-    search_exitButton = Button(search, text="Exit", font=("Century Gothic", 15), fg="white", bg="#804949", bd=0, cursor="hand2", command=search_exitButton_command)
+    search_exitButton = Button(search, text="Exit", font=("Century Gothic", 15), fg="white", bg="#DD0000", bd=0, cursor="hand2", command=search_exitButton_command)
     search_exitButton.grid(row=1, column=0, columnspan=2, padx=50, pady=(0,15), sticky=E)
 
     #--->Create search frame
-    searchFrm = LabelFrame(search, bg="#595959", bd=0)
+    searchFrm = LabelFrame(search, bg="#001F4B", bd=0)
     searchFrm.grid(row=3, column=0, columnspan=2, padx=50, sticky=W)
     #--->
 
@@ -587,7 +591,7 @@ def JMJSearch(usernameinput):
         search.withdraw()
         JMJExisting()
 
-    search_existingbookButton = Button(search, text="Existing Bookings", font=("Century Gothic", 15), fg="white", bg="#595959", bd=0, cursor="hand2", command=search_existingbookButton_command)
+    search_existingbookButton = Button(search, text="Existing Bookings", font=("Century Gothic", 15), fg="white", bg="#38B7FE", bd=0, cursor="hand2", command=search_existingbookButton_command)
     search_existingbookButton.grid(row=4, column=0, padx=50, pady=20, sticky=W)
 
     def search_searchflightsButton_command():
@@ -647,7 +651,7 @@ def JMJSearch(usernameinput):
                 search.withdraw()
                 JMJResult()
 
-    search_searchflightsButton = Button(search, text="Search", font=("Century Gothic", 15), fg="white", bg="#595959", bd=0, width=20, cursor="hand2", command=search_searchflightsButton_command)
+    search_searchflightsButton = Button(search, text="Search", font=("Century Gothic", 15), fg="white", bg="#38B7FE", bd=0, width=20, cursor="hand2", command=search_searchflightsButton_command)
     search_searchflightsButton.grid(row=4, column=1, padx=50, pady=20, sticky=E)
 
     #Search Frame elements
@@ -659,7 +663,7 @@ def JMJSearch(usernameinput):
     def onewayRBFunction(event):
         searchFrm_returnshowdateLabel['state']=DISABLED
 
-    searchFrm_onewayRB = Radiobutton(searchFrm, text="One Way", variable=waySelected, indicatoron=0, value=1,font=("Century Gothic", 15), bg="#595959", fg="white", bd=0, selectcolor="#2b2b2b", activebackground="#2b2b2b", activeforeground="white", cursor="hand2")
+    searchFrm_onewayRB = Radiobutton(searchFrm, text="One Way", variable=waySelected, indicatoron=0, value=1,font=("Century Gothic", 15), bg="#001F4B", fg="white", bd=0, selectcolor="#000E20", activebackground="#000E20", activeforeground="white", cursor="hand2")
     searchFrm_onewayRB.grid(row=0, column=0, pady=(20,0))
 
     searchFrm_onewayRB.bind("<Button 1>", onewayRBFunction)
@@ -667,13 +671,13 @@ def JMJSearch(usernameinput):
     def twowayRBFunction(event):
         searchFrm_returnshowdateLabel['state']=NORMAL
 
-    searchFrm_twowayRB = Radiobutton(searchFrm, text="Round Trip", variable=waySelected, indicatoron=0, value=2,font=("Century Gothic", 15), bg="#595959", fg="white", bd=0, selectcolor="#2b2b2b", activebackground="#2b2b2b", activeforeground="white", cursor="hand2")
+    searchFrm_twowayRB = Radiobutton(searchFrm, text="Round Trip", variable=waySelected, indicatoron=0, value=2,font=("Century Gothic", 15), bg="#001F4B", fg="white", bd=0, selectcolor="#000E20", activebackground="#000E20", activeforeground="white", cursor="hand2")
     searchFrm_twowayRB.grid(row=0, column=1, pady=(20,0))
 
     searchFrm_twowayRB.bind("<Button 1>", twowayRBFunction)
 
     #--->Separating line 1
-    searchFrm_sepline1Label = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#595959", fg="#2b2b2b", )
+    searchFrm_sepline1Label = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
     searchFrm_sepline1Label.grid(row=1, column=0, columnspan=2, padx=10)
 
 
@@ -682,7 +686,7 @@ def JMJSearch(usernameinput):
     fromto= ["Bangalore", "Calcutta", "Chennai", "Delhi", "Mumbai"]
 
     #---From
-    searchFrm_fromLabel = Label(searchFrm, text="From:", font=("Century Gothic", 15), fg="white", bg="#595959")
+    searchFrm_fromLabel = Label(searchFrm, text="From:", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     searchFrm_fromLabel.grid(row=2, column=0, padx=(90,0), pady=(20,0), sticky=W)
 
     fromSelected = StringVar()
@@ -690,18 +694,18 @@ def JMJSearch(usernameinput):
 
     searchFrm_fromOM = OptionMenu(searchFrm, fromSelected, *fromto)
     searchFrm_fromOM['menu']['font']=("Century Gothic", 12)
-    searchFrm_fromOM['menu']['bg']="#595959"
+    searchFrm_fromOM['menu']['bg']="#001F4B"
     searchFrm_fromOM['menu']['fg']="white"
     searchFrm_fromOM['menu']['bd']=0
     searchFrm_fromOM['menu']['activebackground']="white"
-    searchFrm_fromOM['menu']['activeforeground']="#2b2b2b"
+    searchFrm_fromOM['menu']['activeforeground']="#000E20"
     searchFrm_fromOM['menu']['cursor']="hand2"
     
     searchFrm_fromOM['font']=("Century Gothic", 15)
-    searchFrm_fromOM['bg']="#2b2b2b"
+    searchFrm_fromOM['bg']="#000E20"
     searchFrm_fromOM['fg']="white"
     searchFrm_fromOM['bd']=0
-    searchFrm_fromOM['activebackground']="#2b2b2b"
+    searchFrm_fromOM['activebackground']="#000E20"
     searchFrm_fromOM['activeforeground']="white"
     searchFrm_fromOM['highlightthickness']=0
     searchFrm_fromOM['width']=15
@@ -709,7 +713,7 @@ def JMJSearch(usernameinput):
     searchFrm_fromOM.grid(row=2, column=0, padx=(0,70), pady=(20,0), sticky=E)
 
     #---To
-    searchFrm_toLabel = Label(searchFrm, text="To:", font=("Century Gothic", 15), fg="white", bg="#595959")
+    searchFrm_toLabel = Label(searchFrm, text="To:", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     searchFrm_toLabel.grid(row=2, column=1, padx=(115,0), pady=(20,0), sticky=W)
 
     toSelected = StringVar()
@@ -717,18 +721,18 @@ def JMJSearch(usernameinput):
 
     searchFrm_toOM = OptionMenu(searchFrm, toSelected, *fromto)
     searchFrm_toOM['menu']['font']=("Century Gothic", 12)
-    searchFrm_toOM['menu']['bg']="#595959"
+    searchFrm_toOM['menu']['bg']="#001F4B"
     searchFrm_toOM['menu']['fg']="white"
     searchFrm_toOM['menu']['bd']=0
     searchFrm_toOM['menu']['activebackground']="white"
-    searchFrm_toOM['menu']['activeforeground']="#2b2b2b"
+    searchFrm_toOM['menu']['activeforeground']="#000E20"
     searchFrm_toOM['menu']['cursor']="hand2"
     
     searchFrm_toOM['font']=("Century Gothic", 15)
-    searchFrm_toOM['bg']="#2b2b2b"
+    searchFrm_toOM['bg']="#000E20"
     searchFrm_toOM['fg']="white"
     searchFrm_toOM['bd']=0
-    searchFrm_toOM['activebackground']="#2b2b2b"
+    searchFrm_toOM['activebackground']="#000E20"
     searchFrm_toOM['activeforeground']="white"
     searchFrm_toOM['highlightthickness']=0
     searchFrm_toOM['width']=15
@@ -736,7 +740,7 @@ def JMJSearch(usernameinput):
     searchFrm_toOM.grid(row=2, column=1, padx=(0,90), pady=(20,0), sticky=E)
 
     #--->Separating line 2
-    searchFrm_sepline2 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#595959", fg="#2b2b2b", )
+    searchFrm_sepline2 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
     searchFrm_sepline2.grid(row=3, column=0, columnspan=2, padx=10)
 
     #Depart/Return 
@@ -748,7 +752,7 @@ def JMJSearch(usernameinput):
     CalendarWindow.after(0, CalendarWindow.attributes, "-alpha", 1.0) 
     CalendarWindow.attributes("-topmost", True)
     CalendarWindow.iconbitmap("Airicon_final.ico")
-    CalendarWindow.configure(bg='#2b2b2b') 
+    CalendarWindow.configure(bg='#000E20') 
 
     def CalendarWindow_Xpress():
         CalendarWindow.withdraw()
@@ -766,7 +770,7 @@ def JMJSearch(usernameinput):
     CalendarWindow.resizable(0,0)
 
     #---Making and packing the calendar on the window
-    CalendarWindow_Calendar = Calendar(CalendarWindow, selectmode="day", font=("Century Gothic", 13), foreground='white', background="#595959", selectbackground="#595959", selectforeground="white", date_pattern="dd/mm/yyyy", disableddayforeground="black", disableddaybackground="#ffadad", width=50, cursor="hand2")
+    CalendarWindow_Calendar = Calendar(CalendarWindow, selectmode="day", font=("Century Gothic", 13), foreground='white', background="#001F4B", selectbackground="#001F4B", selectforeground="white", date_pattern="dd/mm/yyyy", disableddayforeground="black", disableddaybackground="#FF5B5B", width=50, cursor="hand2")
     CalendarWindow_Calendar.pack(fill=BOTH, expand=YES, padx=10, pady=10)
     CalendarWindow.withdraw()
 
@@ -809,35 +813,35 @@ def JMJSearch(usernameinput):
 
     #---Depart
 
-    searchFrm_departLabel = Label(searchFrm, text="Depart On:", font=("Century Gothic", 15), fg="white", bg="#595959")
+    searchFrm_departLabel = Label(searchFrm, text="Depart On:", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     searchFrm_departLabel.grid(row=4, column=0, padx=(50,0), pady=(20,0), sticky=W)
 
-    searchFrm_departshowdateLabel = Label(searchFrm, text="", font=("Century Gothic", 15), fg="white", bg="#2b2b2b", width=15 )
+    searchFrm_departshowdateLabel = Label(searchFrm, text="", font=("Century Gothic", 15), fg="white", bg="#000E20", width=15 )
     searchFrm_departshowdateLabel.grid(row=4, column=0, padx=(0,70), pady=(20,0), sticky=E)
 
-    searchFrm_departcalendarButton = Button(searchFrm, text="^", font=("Century Gothic", 15), fg="white", bg="#595959", bd=0, activeforeground="#2b2b2b", activebackground="#595959", cursor="hand2", command=lambda: CalendarFunction("depart"))
+    searchFrm_departcalendarButton = Button(searchFrm, text="^", font=("Century Gothic", 15), fg="white", bg="#001F4B", bd=0, activeforeground="#000E20", activebackground="#001F4B", cursor="hand2", command=lambda: CalendarFunction("depart"))
     searchFrm_departcalendarButton.grid(row=4, column=0, padx=(0,40), pady=(20,0), sticky=E)
 
     #---Return
 
-    searchFrm_returnLabel = Label(searchFrm, text="Return On:", font=("Century Gothic", 15), fg="white", bg="#595959")
+    searchFrm_returnLabel = Label(searchFrm, text="Return On:", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     searchFrm_returnLabel.grid(row=4, column=1, padx=(62,0), pady=(20,0), sticky=W)
 
-    searchFrm_returnshowdateLabel = Label(searchFrm, text="", font=("Century Gothic", 15), fg="white", bg="#2b2b2b", width=15 )
+    searchFrm_returnshowdateLabel = Label(searchFrm, text="", font=("Century Gothic", 15), fg="white", bg="#000E20", width=15 )
     searchFrm_returnshowdateLabel.grid(row=4, column=1, padx=(0,88), pady=(20,0), sticky=E)
 
-    searchFrm_returncalendarButton = Button(searchFrm, text="^", font=("Century Gothic", 15), fg="white", bg="#595959", bd=0, activeforeground="#2b2b2b", activebackground="#595959", cursor="hand2", command=lambda: CalendarFunction("return"))
+    searchFrm_returncalendarButton = Button(searchFrm, text="^", font=("Century Gothic", 15), fg="white", bg="#001F4B", bd=0, activeforeground="#000E20", activebackground="#001F4B", cursor="hand2", command=lambda: CalendarFunction("return"))
     searchFrm_returncalendarButton.grid(row=4, column=1, padx=(0,58), pady=(20,0), sticky=E)
 
     #--->Separating line 3
-    searchFrm_sepline3 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#595959", fg="#2b2b2b", )
+    searchFrm_sepline3 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
     searchFrm_sepline3.grid(row=5, column=0, columnspan=2, padx=10)
 
     #Class of Travel
 
     classoftravel = ["Economy", "Premium Economy", "Business", "First"]
 
-    searchFrm_classLabel = Label(searchFrm, text="Class of Travel:", font=("Century Gothic", 15), fg="white", bg="#595959")
+    searchFrm_classLabel = Label(searchFrm, text="Class of Travel:", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     searchFrm_classLabel.grid(row=6, column=0, columnspan=2, padx=(0,355), pady=(20,0), sticky=E)
 
     classSelected = StringVar()
@@ -845,18 +849,18 @@ def JMJSearch(usernameinput):
 
     searchFrm_classOM = OptionMenu(searchFrm, classSelected, *classoftravel)
     searchFrm_classOM['menu']['font']=("Century Gothic", 12)
-    searchFrm_classOM['menu']['bg']="#595959"
+    searchFrm_classOM['menu']['bg']="#001F4B"
     searchFrm_classOM['menu']['fg']="white"
     searchFrm_classOM['menu']['bd']=0
     searchFrm_classOM['menu']['activebackground']="white"
-    searchFrm_classOM['menu']['activeforeground']="#2b2b2b"
+    searchFrm_classOM['menu']['activeforeground']="#000E20"
     searchFrm_classOM['menu']['cursor']="hand2"
     
     searchFrm_classOM['font']=("Century Gothic", 15)
-    searchFrm_classOM['bg']="#2b2b2b"
+    searchFrm_classOM['bg']="#000E20"
     searchFrm_classOM['fg']="white"
     searchFrm_classOM['bd']=0
-    searchFrm_classOM['activebackground']="#2b2b2b"
+    searchFrm_classOM['activebackground']="#000E20"
     searchFrm_classOM['activeforeground']="white"
     searchFrm_classOM['highlightthickness']=0
     searchFrm_classOM['width']=20
@@ -864,7 +868,7 @@ def JMJSearch(usernameinput):
     searchFrm_classOM.grid(row=6, column=0, columnspan=2, padx=(0,88), pady=(20,0), sticky=E)
 
      #--->Separating line 4
-    searchFrm_sepline4 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#595959", fg="#2b2b2b", )
+    searchFrm_sepline4 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
     searchFrm_sepline4.grid(row=7, column=0, columnspan=2, padx=10)
 
     #Adults/Children
@@ -872,7 +876,7 @@ def JMJSearch(usernameinput):
     #---adults
     adultlist= ['1','2','3','4','5']
 
-    searchFrm_adultLabel = Label(searchFrm, text="Adults:", font=("Century Gothic", 15), fg="white", bg="#595959")
+    searchFrm_adultLabel = Label(searchFrm, text="Adults:", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     searchFrm_adultLabel.grid(row=8, column=0, padx=(127,0), pady=(20,0), sticky=W)
 
     adultSelected = StringVar()
@@ -880,18 +884,18 @@ def JMJSearch(usernameinput):
 
     searchFrm_adultOM = OptionMenu(searchFrm, adultSelected, *adultlist)
     searchFrm_adultOM['menu']['font']=("Century Gothic", 12)
-    searchFrm_adultOM['menu']['bg']="#595959"
+    searchFrm_adultOM['menu']['bg']="#001F4B"
     searchFrm_adultOM['menu']['fg']="white"
     searchFrm_adultOM['menu']['bd']=0
     searchFrm_adultOM['menu']['activebackground']="white"
-    searchFrm_adultOM['menu']['activeforeground']="#2b2b2b"
+    searchFrm_adultOM['menu']['activeforeground']="#000E20"
     searchFrm_adultOM['menu']['cursor']="hand2"
     
     searchFrm_adultOM['font']=("Century Gothic", 15)
-    searchFrm_adultOM['bg']="#2b2b2b"
+    searchFrm_adultOM['bg']="#000E20"
     searchFrm_adultOM['fg']="white"
     searchFrm_adultOM['bd']=0
-    searchFrm_adultOM['activebackground']="#2b2b2b"
+    searchFrm_adultOM['activebackground']="#000E20"
     searchFrm_adultOM['activeforeground']="white"
     searchFrm_adultOM['highlightthickness']=0
     searchFrm_adultOM['width']=10
@@ -901,7 +905,7 @@ def JMJSearch(usernameinput):
     #---children
     childrenlist= ['0','1','2','3','4','5']
 
-    searchFrm_childrenLabel = Label(searchFrm, text="Children:", font=("Century Gothic", 15), fg="white", bg="#595959")
+    searchFrm_childrenLabel = Label(searchFrm, text="Children:", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     searchFrm_childrenLabel.grid(row=8, column=1, padx=(115,0), pady=(20,0), sticky=W)
 
     childrenSelected = StringVar()
@@ -909,18 +913,18 @@ def JMJSearch(usernameinput):
 
     searchFrm_childrenOM = OptionMenu(searchFrm, childrenSelected, *childrenlist)
     searchFrm_childrenOM['menu']['font']=("Century Gothic", 12)
-    searchFrm_childrenOM['menu']['bg']="#595959" 
+    searchFrm_childrenOM['menu']['bg']="#001F4B" 
     searchFrm_childrenOM['menu']['fg']="white"
     searchFrm_childrenOM['menu']['bd']=0
     searchFrm_childrenOM['menu']['activebackground']="white"
-    searchFrm_childrenOM['menu']['activeforeground']="#2b2b2b"
+    searchFrm_childrenOM['menu']['activeforeground']="#000E20"
     searchFrm_childrenOM['menu']['cursor']="hand2"
     
     searchFrm_childrenOM['font']=("Century Gothic", 15)
-    searchFrm_childrenOM['bg']="#2b2b2b"
+    searchFrm_childrenOM['bg']="#000E20"
     searchFrm_childrenOM['fg']="white"
     searchFrm_childrenOM['bd']=0
-    searchFrm_childrenOM['activebackground']="#2b2b2b"
+    searchFrm_childrenOM['activebackground']="#000E20"
     searchFrm_childrenOM['activeforeground']="white"
     searchFrm_childrenOM['highlightthickness']=0
     searchFrm_childrenOM['width']=10
@@ -928,17 +932,17 @@ def JMJSearch(usernameinput):
     searchFrm_childrenOM.grid(row=8, column=1, padx=(0,87), pady=(20,0), sticky=E)
 
     #--->Separating line 5
-    searchFrm_sepline5 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#595959", fg="#2b2b2b", )
+    searchFrm_sepline5 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
     searchFrm_sepline5.grid(row=9, column=0, columnspan=2, padx=10)
 
     #NonVeg/Veg
     foodSelected = IntVar()
     foodSelected.set(2)
 
-    searchFrm_nonvegRB = Radiobutton(searchFrm, text="Non-Vegetarian", variable=foodSelected, indicatoron=0, value=1,font=("Century Gothic", 15), bg="#595959", fg="white", bd=0, selectcolor="#2b2b2b", activebackground="#2b2b2b", activeforeground="white", cursor="hand2")
+    searchFrm_nonvegRB = Radiobutton(searchFrm, text="Non-Vegetarian", variable=foodSelected, indicatoron=0, value=1,font=("Century Gothic", 15), bg="#001F4B", fg="white", bd=0, selectcolor="#000E20", activebackground="#000E20", activeforeground="white", cursor="hand2")
     searchFrm_nonvegRB.grid(row=10, column=0, pady=(20,20))
 
-    searchFrm_vegRB = Radiobutton(searchFrm, text="Vegetarian", variable=foodSelected, indicatoron=0, value=2,font=("Century Gothic", 15), bg="#595959", fg="white", bd=0, selectcolor="#2b2b2b", activebackground="#2b2b2b", activeforeground="white", cursor="hand2")
+    searchFrm_vegRB = Radiobutton(searchFrm, text="Vegetarian", variable=foodSelected, indicatoron=0, value=2,font=("Century Gothic", 15), bg="#001F4B", fg="white", bd=0, selectcolor="#000E20", activebackground="#000E20", activeforeground="white", cursor="hand2")
     searchFrm_vegRB.grid(row=10, column=1, pady=(20,20))
 
     search.mainloop()
@@ -954,7 +958,7 @@ def JMJExisting():
     existing.attributes("-topmost", True)
     existing.title("AirNow: Existing Bookings")
     existing.iconbitmap("Airicon_final.ico")
-    existing.configure(bg='#2b2b2b')
+    existing.configure(bg='#000E20')
 
     def existing_Xpress():
         search.destroy()
@@ -978,14 +982,14 @@ def JMJExisting():
         existing.destroy()
         search.deiconify()
 
-    existing_backButton = Button(existing, text="<", font=("Century Gothic", 25), fg="white", bg="#2b2b2b", bd=0, activeforeground="#595959", activebackground="#2b2b2b", width=0, cursor="hand2", command=existing_backButton_command)
+    existing_backButton = Button(existing, text="<", font=("Century Gothic", 25), fg="white", bg="#000E20", bd=0, activeforeground="#001F4B", activebackground="#000E20", width=0, cursor="hand2", command=existing_backButton_command)
     existing_backButton.grid(row=0, column=0, columnspan=2, sticky=W, padx=(28,50))
 
-    existing_existingLabel = Label(existing, text="Existing Bookings", font=("Century Gothic", 25), fg="white", bg="#2b2b2b")
+    existing_existingLabel = Label(existing, text="Existing Bookings", font=("Century Gothic", 25), fg="white", bg="#000E20")
     existing_existingLabel.grid(row=0, column=0, columnspan=2, sticky=W, padx=(88,0), pady=(20,15))
 
     #--->Creating Existing Bookings frame
-    existingFrm = LabelFrame(existing, bg="#595959", bd=0)
+    existingFrm = LabelFrame(existing, bg="#001F4B", bd=0)
     existingFrm.grid(row=1, column=0, columnspan=2, padx=28, sticky=W)
     #--->
 
@@ -993,17 +997,17 @@ def JMJExisting():
 
     #Outer Frame elements
     # 24, 32, 22, 27, 12, 15, 34
-    resultOnwardFrm_threeLabels = Label(existingFrm, text="From                        To                                Onward                      Return                           Passengers(total)            Meal Preference               Onward Flight                                  Return Flight", font=("Century Gothic", 10), fg="white", bg="#595959")
+    resultOnwardFrm_threeLabels = Label(existingFrm, text="From                        To                                Onward                      Return                           Passengers(total)            Meal Preference               Onward Flight                                  Return Flight", font=("Century Gothic", 10), fg="white", bg="#001F4B")
     resultOnwardFrm_threeLabels.pack(anchor=W, padx=20, pady=(20,0))
 
     #--->Inner Frame
-    existingFrm_existingFrame = Frame(existingFrm, bg="#595959", bd=0)
+    existingFrm_existingFrame = Frame(existingFrm, bg="#001F4B", bd=0)
     existingFrm_existingFrame.pack(anchor=W, padx=20, pady=(0,20))
     #--->
 
     #Inner Frame elements
-    existingFrame_Scrollar = Scrollbar(existingFrm_existingFrame, orient=VERTICAL, bg="#2b2b2b", bd=0, width=12)
-    existingFrame_Listbox = Listbox(existingFrm_existingFrame, font=("Courier New", 12), bg="#2b2b2b", fg="white", bd=0, highlightcolor="#2b2b2b", selectbackground="white", selectforeground="#2b2b2b", highlightbackground="#2b2b2b", height=15, width=135, yscrollcommand=existingFrame_Scrollar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
+    existingFrame_Scrollar = Scrollbar(existingFrm_existingFrame, orient=VERTICAL, bg="#000E20", bd=0, width=12)
+    existingFrame_Listbox = Listbox(existingFrm_existingFrame, font=("Courier New", 12), bg="#000E20", fg="white", bd=0, highlightcolor="#000E20", selectbackground="white", selectforeground="#000E20", highlightbackground="#000E20", height=15, width=135, yscrollcommand=existingFrame_Scrollar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
 
     existingFrame_Scrollar.config(command=existingFrame_Listbox.yview)
     existingFrame_Scrollar.pack(side=RIGHT,fill=Y)
@@ -1042,7 +1046,7 @@ def JMJResult():
     result.attributes("-topmost", True)
     result.title("AirNow: Your Search Results")
     result.iconbitmap("Airicon_final.ico")
-    result.configure(bg='#2b2b2b')
+    result.configure(bg='#000E20')
     result.deiconify()
 
     def result_Xpress():
@@ -1067,29 +1071,29 @@ def JMJResult():
         result.destroy()
         search.deiconify()
 
-    result_backButton = Button(result, text="<", font=("Century Gothic", 25), fg="white", bg="#2b2b2b", bd=0, activeforeground="#595959", activebackground="#2b2b2b", width=0, cursor="hand2", command=result_backButton_command)
+    result_backButton = Button(result, text="<", font=("Century Gothic", 25), fg="white", bg="#000E20", bd=0, activeforeground="#001F4B", activebackground="#000E20", width=0, cursor="hand2", command=result_backButton_command)
     result_backButton.grid(row=0, column=0, columnspan=2, sticky=W, padx=50)
 
-    result_hereareLabel = Label(result, text="Here are your search results..", font=("Century Gothic", 25), fg="white", bg="#2b2b2b")
+    result_hereareLabel = Label(result, text="Here are your search results..", font=("Century Gothic", 25), fg="white", bg="#000E20")
     result_hereareLabel.grid(row=0, column=0, columnspan=2, sticky=W, padx=(110,0), pady=(20,15))
 
     #--->Create you had searched for frame
-    resultOptionsFrm = LabelFrame(result, bg="#595959", bd=0)
+    resultOptionsFrm = LabelFrame(result, bg="#001F4B", bd=0)
     resultOptionsFrm.grid(row=1, column=0, columnspan=2, padx=50, sticky=W)
     #--->
 
     #--->Create Onward flights frame
-    resultOnwardFrm = LabelFrame(result, text="\n    Onward Flights:", font=("Century Gothic", 15), bg="#595959", fg="white", bd=0)
+    resultOnwardFrm = LabelFrame(result, text="\n    Onward Flights:", font=("Century Gothic", 15), bg="#001F4B", fg="white", bd=0)
     resultOnwardFrm.grid(row=2, column=0, padx=(50,10), pady=20, sticky=W)
     #--->
 
     #--->Create Return flights frame
-    resultReturnFrm = LabelFrame(result, text="\n    Return Flights:", font=("Century Gothic", 15), bg="#595959", fg="white", bd=0)
+    resultReturnFrm = LabelFrame(result, text="\n    Return Flights:", font=("Century Gothic", 15), bg="#001F4B", fg="white", bd=0)
     resultReturnFrm.grid(row=2, column=1, padx=(10,50), pady=20, sticky=W)
     #--->
 
     #--->Create Payment Method frame
-    resultPayFrm = LabelFrame(result, text="\n    Payment Method:", font=("Century Gothic", 15), bg="#595959", fg="white", bd=0)
+    resultPayFrm = LabelFrame(result, text="\n    Payment Method:", font=("Century Gothic", 15), bg="#001F4B", fg="white", bd=0)
     resultPayFrm.grid(row=3, column=0, columnspan=2, padx=50, sticky=W)
     #--->
 
@@ -1162,54 +1166,54 @@ def JMJResult():
                 JMJDisplay("Seats successfully reserved", 70, 350, 15, 20)
 
 
-    result_proceedButton = Button(result, text="Confirm Booking", font=("Century Gothic", 15), fg="white", bg="#595959", bd=0, width=20, cursor="hand2", command=result_proceedButton_command)
+    result_proceedButton = Button(result, text="Confirm Booking", font=("Century Gothic", 15), fg="white", bg="#38B7FE", bd=0, width=20, cursor="hand2", command=result_proceedButton_command)
     result_proceedButton.grid(row=4, column=0, columnspan=2, padx=50, pady=20, sticky=E)
 
     #you have searched frame elements
-    resultOptionsFrm_fromLabel = Label(resultOptionsFrm, text="From:", font=("Century Gothic", 13), fg="white", bg="#595959")
+    resultOptionsFrm_fromLabel = Label(resultOptionsFrm, text="From:", font=("Century Gothic", 13), fg="white", bg="#001F4B")
     resultOptionsFrm_fromLabel.grid(row=0, column=0, padx=(140,0),pady=(20,10), sticky=W)
-    resultOptionsFrm_fromselectedLabel = Label(resultOptionsFrm, text=search_fromselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#2b2b2b", width=20)
+    resultOptionsFrm_fromselectedLabel = Label(resultOptionsFrm, text=search_fromselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#000E20", width=20)
     resultOptionsFrm_fromselectedLabel.grid(row=0, column=0, padx=(200,0),pady=(20,10), sticky=E)
 
-    resultOptionsFrm_wayLabel = Label(resultOptionsFrm, text="To:", font=("Century Gothic", 13), fg="white", bg="#595959")
+    resultOptionsFrm_wayLabel = Label(resultOptionsFrm, text="To:", font=("Century Gothic", 13), fg="white", bg="#001F4B")
     resultOptionsFrm_wayLabel.grid(row=1, column=0, padx=(160,0),pady=10, sticky=W)
-    resultOptionsFrm_wayselectedLabel = Label(resultOptionsFrm, text=search_toselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#2b2b2b", width=20)
+    resultOptionsFrm_wayselectedLabel = Label(resultOptionsFrm, text=search_toselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#000E20", width=20)
     resultOptionsFrm_wayselectedLabel.grid(row=1, column=0, padx=(200,0),pady=10, sticky=E)
 
-    resultOptionsFrm_passLabel = Label(resultOptionsFrm, text="Passengers (total):", font=("Century Gothic", 13), fg="white", bg="#595959")
+    resultOptionsFrm_passLabel = Label(resultOptionsFrm, text="Passengers (total):", font=("Century Gothic", 13), fg="white", bg="#001F4B")
     resultOptionsFrm_passLabel.grid(row=2, column=0, padx=(33,0),pady=(10,20), sticky=W)
-    resultOptionsFrm_passselectedLabel = Label(resultOptionsFrm, text=search_passengersselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#2b2b2b", width=20)
+    resultOptionsFrm_passselectedLabel = Label(resultOptionsFrm, text=search_passengersselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#000E20", width=20)
     resultOptionsFrm_passselectedLabel.grid(row=2, column=0, padx=(200,0),pady=(10,20), sticky=E)
 
 
 
-    resultOptionsFrm_toLabel = Label(resultOptionsFrm, text="Trip:", font=("Century Gothic", 13), fg="white", bg="#595959")
+    resultOptionsFrm_toLabel = Label(resultOptionsFrm, text="Trip:", font=("Century Gothic", 13), fg="white", bg="#001F4B")
     resultOptionsFrm_toLabel.grid(row=0, column=1, padx=(152,0),pady=(20,10), sticky=W)
-    resultOptionsFrm_toselectedLabel = Label(resultOptionsFrm, text=search_wayselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#2b2b2b", width=20)
+    resultOptionsFrm_toselectedLabel = Label(resultOptionsFrm, text=search_wayselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#000E20", width=20)
     resultOptionsFrm_toselectedLabel.grid(row=0, column=1, padx=(200,36),pady=(20,10), sticky=E)
 
-    resultOptionsFrm_classLabel = Label(resultOptionsFrm, text="Class:", font=("Century Gothic", 13), fg="white", bg="#595959")
+    resultOptionsFrm_classLabel = Label(resultOptionsFrm, text="Class:", font=("Century Gothic", 13), fg="white", bg="#001F4B")
     resultOptionsFrm_classLabel.grid(row=1, column=1, padx=(136,0),pady=10, sticky=W)
-    resultOptionsFrm_classselectedLabel = Label(resultOptionsFrm, text=search_classselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#2b2b2b", width=20)
+    resultOptionsFrm_classselectedLabel = Label(resultOptionsFrm, text=search_classselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#000E20", width=20)
     resultOptionsFrm_classselectedLabel.grid(row=1, column=1, padx=(200,36),pady=10, sticky=E)
 
-    resultOptionsFrm_foodLabel = Label(resultOptionsFrm, text="Meal preference:", font=("Century Gothic", 13), fg="white", bg="#595959")
+    resultOptionsFrm_foodLabel = Label(resultOptionsFrm, text="Meal preference:", font=("Century Gothic", 13), fg="white", bg="#001F4B")
     resultOptionsFrm_foodLabel.grid(row=2, column=1, padx=(40,0),pady=(10,20), sticky=W)
-    resultOptionsFrm_foodselectedLabel = Label(resultOptionsFrm, text=search_mealselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#2b2b2b", width=20)
+    resultOptionsFrm_foodselectedLabel = Label(resultOptionsFrm, text=search_mealselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#000E20", width=20)
     resultOptionsFrm_foodselectedLabel.grid(row=2, column=1, padx=(200,36),pady=(10,20), sticky=E)
 
     #-----ONWARD flights frame
 
     #Outer Frame elements
-    resultOnwardFrm_threeLabels = Label(resultOnwardFrm, text="Departure            Arrival                 Price", font=("Century Gothic", 10), fg="white", bg="#595959")
+    resultOnwardFrm_threeLabels = Label(resultOnwardFrm, text="Departure            Arrival                 Price", font=("Century Gothic", 10), fg="white", bg="#001F4B")
     resultOnwardFrm_threeLabels.pack(anchor=W, padx=20, pady=(20,0))
     #--->Inner Frame
-    resultOnwardFrm_onwardFrame = Frame(resultOnwardFrm, bg="#595959", bd=0)
+    resultOnwardFrm_onwardFrame = Frame(resultOnwardFrm, bg="#001F4B", bd=0)
     resultOnwardFrm_onwardFrame.pack(anchor=W, padx=20, pady=(0,20))
     #--->
     #Inner Frame elements
-    onwardFrame_Scrollar = Scrollbar(resultOnwardFrm_onwardFrame, orient=VERTICAL, bg="#2b2b2b", bd=0, width=12)
-    onwardFrame_Listbox = Listbox(resultOnwardFrm_onwardFrame, font=("Courier New", 12), bg="#2b2b2b", fg="white", bd=0, highlightcolor="#2b2b2b", selectbackground="white", selectforeground="#2b2b2b", highlightbackground="#2b2b2b", height=7, width=36, yscrollcommand=onwardFrame_Scrollar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
+    onwardFrame_Scrollar = Scrollbar(resultOnwardFrm_onwardFrame, orient=VERTICAL, bg="#000E20", bd=0, width=12)
+    onwardFrame_Listbox = Listbox(resultOnwardFrm_onwardFrame, font=("Courier New", 12), bg="#000E20", fg="white", bd=0, highlightcolor="#000E20", selectbackground="white", selectforeground="#000E20", highlightbackground="#000E20", height=7, width=36, yscrollcommand=onwardFrame_Scrollar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
     
     onwardFrame_Scrollar.config(command=onwardFrame_Listbox.yview)
     onwardFrame_Scrollar.pack(side=RIGHT,fill=Y)
@@ -1232,15 +1236,15 @@ def JMJResult():
     #------RETURN flights frame
 
     #Outer Frame elements
-    resultReturnFrm_threeLabels = Label(resultReturnFrm, text="Departure            Arrival                 Price", font=("Century Gothic", 10), fg="white", bg="#595959")
+    resultReturnFrm_threeLabels = Label(resultReturnFrm, text="Departure            Arrival                 Price", font=("Century Gothic", 10), fg="white", bg="#001F4B")
     resultReturnFrm_threeLabels.pack(anchor=W, padx=20, pady=(20,0))
     #--->Inner Frame
-    resultReturnFrm_returnFrame = Frame(resultReturnFrm, bg="#595959", bd=0)
+    resultReturnFrm_returnFrame = Frame(resultReturnFrm, bg="#001F4B", bd=0)
     resultReturnFrm_returnFrame.pack(anchor=W, padx=20, pady=(0,20))
     #--->
     #Inner Frame elements
-    returnFrame_Scrollar = Scrollbar(resultReturnFrm_returnFrame, orient=VERTICAL, bg="#595959", bd=0, width=12)
-    returnFrame_Listbox = Listbox(resultReturnFrm_returnFrame, font=("Courier New", 12), bg="#2b2b2b", fg="white", bd=0, highlightcolor="#2b2b2b", selectbackground="white", selectforeground="#2b2b2b", highlightbackground="#2b2b2b", height=7, width=36, yscrollcommand=returnFrame_Scrollar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
+    returnFrame_Scrollar = Scrollbar(resultReturnFrm_returnFrame, orient=VERTICAL, bg="#001F4B", bd=0, width=12)
+    returnFrame_Listbox = Listbox(resultReturnFrm_returnFrame, font=("Courier New", 12), bg="#000E20", fg="white", bd=0, highlightcolor="#000E20", selectbackground="white", selectforeground="#000E20", highlightbackground="#000E20", height=7, width=36, yscrollcommand=returnFrame_Scrollar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
     
     returnFrame_Scrollar.config(command=returnFrame_Listbox.yview)
     returnFrame_Scrollar.pack(side=RIGHT,fill=Y)
@@ -1274,12 +1278,12 @@ def JMJResult():
         resultPayFrm_counterRB.select()
         paySelected.set(2)
 
-    resultPayFrm_onlineRB = Radiobutton(resultPayFrm, text="Online Payment", variable=paySelected, indicatoron=0, value=1,font=("Century Gothic", 15), bg="#595959", fg="white", bd=0, selectcolor="#595959", activebackground="#595959", activeforeground="white", cursor="hand2")
+    resultPayFrm_onlineRB = Radiobutton(resultPayFrm, text="Online Payment", variable=paySelected, indicatoron=0, value=1,font=("Century Gothic", 15), bg="#001F4B", fg="white", bd=0, selectcolor="#001F4B", activebackground="#001F4B", activeforeground="white", cursor="hand2")
     resultPayFrm_onlineRB.grid(row=0, column=0, padx=133, pady=20)
 
     resultPayFrm_onlineRB.bind("<Button 1>", onlineRBFunction)
 
-    resultPayFrm_counterRB = Radiobutton(resultPayFrm, text="Pay at Counter", variable=paySelected, indicatoron=0, value=2,font=("Century Gothic", 15), bg="#595959", fg="white", bd=0, selectcolor="#2b2b2b", activebackground="#2b2b2b", activeforeground="white", cursor="hand2")
+    resultPayFrm_counterRB = Radiobutton(resultPayFrm, text="Pay at Counter", variable=paySelected, indicatoron=0, value=2,font=("Century Gothic", 15), bg="#001F4B", fg="white", bd=0, selectcolor="#000E20", activebackground="#000E20", activeforeground="white", cursor="hand2")
     resultPayFrm_counterRB.grid(row=0, column=1, padx=133, pady=20)
 
     resultPayFrm_counterRB.select()
