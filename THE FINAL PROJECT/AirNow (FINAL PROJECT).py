@@ -10,9 +10,9 @@
 #changed ui colors
     #000E20 dark
     #001F4B semi dark
-    #38B7FE light
+    #0055FF light
 # Changed the importing part, using cmd directly to install instead of IDLE, lines of code down to 1295
-
+# changed button colors to #0055FF
 #importing modules and catching exceptions
 try:
     from tkinter import *
@@ -178,10 +178,10 @@ def JMJSql():
     sqlpass_mainLabel = Label(sqlpass, text="MySQL server password:", font=("Century Gothic", 20), fg="white", bg="#000E20")
     sqlpass_mainLabel.pack(anchor=W, padx=20, pady=20)
 
-    sqlpass_passwordInput = Entry(sqlpass, font=("Century Gothic", 14), bg="#001F4B", fg="#38B7FE", bd=0, width=29, show="*")
+    sqlpass_passwordInput = Entry(sqlpass, font=("Century Gothic", 14), bg="#001F4B", fg="#0055FF", bd=0, width=29, show="*")
     sqlpass_passwordInput.pack(anchor=W, padx=20)
 
-    sqlpass_noteLabel = Label(sqlpass, text="Note: If no password is set, just click OK", font=("Century Gothic", 10), fg="#38B7FE", bg="#000E20")
+    sqlpass_noteLabel = Label(sqlpass, text="Note: If no password is set, just click OK", font=("Century Gothic", 10), fg="#0055FF", bg="#000E20")
     sqlpass_noteLabel.pack(anchor=W, padx=20, pady=(5,10))
 
     def sqlpass_okButton_command():
@@ -189,7 +189,7 @@ def JMJSql():
         sqlpass_okButton_getvalue = sqlpass_passwordInput.get()
         sqlpass.destroy()
 
-    sqlpass_okButton = Button(sqlpass, text="Ok", font=("Century Gothic", 15), bg="#38B7FE", fg="white", bd=0, width=15, cursor="hand2", command=sqlpass_okButton_command)
+    sqlpass_okButton = Button(sqlpass, text="Ok", font=("Century Gothic", 15), bg="#0055FF", fg="white", bd=0, width=15, cursor="hand2", command=sqlpass_okButton_command)
     sqlpass_okButton.pack()
 
     sqlpass.mainloop()
@@ -406,7 +406,7 @@ def JMJNewUser():
         elif(signupFrm_passwordInput_getvalue != signupFrm_cpasswordInput_getvalue):
             messagebox.showerror("AirNow: Error", "Passwords dont match")
 
-    signup_signupButton = Button(signup, text="Sign Up", font=("Century Gothic", 15), bg="#38B7FE", fg="white", bd=0, width=20,  cursor='hand2', command=signup_signupButton_command)
+    signup_signupButton = Button(signup, text="Sign Up", font=("Century Gothic", 15), bg="#0055FF", fg="white", bd=0, width=20,  cursor='hand2', command=signup_signupButton_command)
     signup_signupButton.grid(row=2, column=0, pady=20)
 
     #Signup Frame elements
@@ -476,7 +476,7 @@ def JMJLogin():
         loginFrm_passwordInput_getvalue = loginFrm_passwordInput.get()
         login.destroy()
 
-    login_loginButton = Button(login, text="Login", bg="#38B7FE", fg="white", bd=0, width=20, font=("Century Gothic", 15), cursor="hand2", command=login_loginButton_command)
+    login_loginButton = Button(login, text="Login", bg="#0055FF", fg="white", bd=0, width=20, font=("Century Gothic", 15), cursor="hand2", command=login_loginButton_command)
     login_loginButton.pack(pady=20)
 
     def login_createButton_command():
@@ -486,7 +486,7 @@ def JMJLogin():
         except:
             pass
 
-    login_createButton = Button(login, text="New here? Create an Account", bg="#38B7FE", fg="white", bd=0, width=49, font=("Century Gothic", 15), cursor="hand2", command=login_createButton_command)
+    login_createButton = Button(login, text="New here? Create an Account", bg="#0055FF", fg="white", bd=0, width=49, font=("Century Gothic", 15), cursor="hand2", command=login_createButton_command)
     login_createButton.pack(ipady=5, padx=20)
 
     #Login Frame elements
@@ -499,7 +499,7 @@ def JMJLogin():
     loginFrm_passwordLabel = Label(loginFrm, text="Password", font=("Century Gothic", 15), fg="white", bg="#001F4B")
     loginFrm_passwordLabel.grid(row=1, column=0, padx=(70,10), pady=(10,30))
 
-    loginFrm_passwordInput = Entry(loginFrm, width=30, font=("Century Gothic", 14), bg="#000E20", fg="#38B7FE", bd=0, show="*")
+    loginFrm_passwordInput = Entry(loginFrm, width=30, font=("Century Gothic", 14), bg="#000E20", fg="#0055FF", bd=0, show="*")
     loginFrm_passwordInput.grid(row=1, column=1, padx=(0, 70), pady=(11,30))
 
     login.mainloop()
@@ -591,7 +591,7 @@ def JMJSearch(usernameinput):
         search.withdraw()
         JMJExisting()
 
-    search_existingbookButton = Button(search, text="Existing Bookings", font=("Century Gothic", 15), fg="white", bg="#38B7FE", bd=0, cursor="hand2", command=search_existingbookButton_command)
+    search_existingbookButton = Button(search, text="Existing Bookings", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, cursor="hand2", command=search_existingbookButton_command)
     search_existingbookButton.grid(row=4, column=0, padx=50, pady=20, sticky=W)
 
     def search_searchflightsButton_command():
@@ -651,7 +651,7 @@ def JMJSearch(usernameinput):
                 search.withdraw()
                 JMJResult()
 
-    search_searchflightsButton = Button(search, text="Search", font=("Century Gothic", 15), fg="white", bg="#38B7FE", bd=0, width=20, cursor="hand2", command=search_searchflightsButton_command)
+    search_searchflightsButton = Button(search, text="Search", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, width=20, cursor="hand2", command=search_searchflightsButton_command)
     search_searchflightsButton.grid(row=4, column=1, padx=50, pady=20, sticky=E)
 
     #Search Frame elements
@@ -1045,7 +1045,7 @@ def JMJResult():
     result.after(1, result.attributes, "-alpha", 1.0)
     result.attributes("-topmost", True)
     result.title("AirNow: Your Search Results")
-    result.iconbitmap("Airicon_final.ico")
+    result.iconbitmap("Airicon_final.png")
     result.configure(bg='#000E20')
     result.deiconify()
 
@@ -1166,7 +1166,7 @@ def JMJResult():
                 JMJDisplay("Seats successfully reserved", 70, 350, 15, 20)
 
 
-    result_proceedButton = Button(result, text="Confirm Booking", font=("Century Gothic", 15), fg="white", bg="#38B7FE", bd=0, width=20, cursor="hand2", command=result_proceedButton_command)
+    result_proceedButton = Button(result, text="Confirm Booking", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, width=20, cursor="hand2", command=result_proceedButton_command)
     result_proceedButton.grid(row=4, column=0, columnspan=2, padx=50, pady=20, sticky=E)
 
     #you have searched frame elements
