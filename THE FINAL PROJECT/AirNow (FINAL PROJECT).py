@@ -3,7 +3,7 @@
 # Team members: JOHAN MATHEW JOSEPH, ADVAY SAI INABATHINI, ADIT POTNIS               #
 # Project: AirNow (Airline Reservation System)                                       #
 # Version: v1.0                                                                      #
-# Total lines of code: 1,295                                                         #
+# Total lines of code: 1,303                                                         #
 #                                                                                    #
 #====================================================================================#
 #BELT A COMMENT HERE EVERYTIME YOU PUSH
@@ -13,6 +13,7 @@
     #0055FF light
 # Changed the importing part, using cmd directly to install instead of IDLE, lines of code down to 1295
 # changed button colors to #0055FF
+# changed logo, one warning message, no internet message
 #importing modules and catching exceptions
 try:
     from tkinter import *
@@ -68,14 +69,17 @@ try:
             import mysql.connector
 
 except:
-    print("===============================================================================")
-    print("===============================================================================")
-    print("\nPLEASE HAVE A STABLE INTERNET CONNECTION")
-    print("\nError while importing some modules, kindly contact developer immediately")
-    print("\nkindy look into the \"INSTRUCTIONS README.txt\" file attached if this has occured")
+    print("====================================================================================================================================")
+    print("====================================================================================================================================")
+    print("\nTHIS PROJECT REQUIRES A STABLE ACTIVE INTERNET CONNECTION AT FIRST")
+    print("\nReason: To automatically install the missing packages required to make this project work")
+    print("------> Once packages have been installed once on your device, internet connection is not required while running this program again")
+    print("\n")
+    print("\nPlease turn on your internet and re-execute the program")
+    print("If you are seeing this error after doing so, your internet connection may not be stable")
     print("\nTeam Members:\nJohan Mathew Joseph\nAdvay Sai Inabathini\nAdit Potnis")
-    print("\n===============================================================================")
-    print("===============================================================================")
+    print("\n====================================================================================================================================")
+    print("====================================================================================================================================")
     exit()
 #======================================================================================================================================
 #PROGRESS BAR
@@ -181,7 +185,7 @@ def JMJSql():
     sqlpass_passwordInput = Entry(sqlpass, font=("Century Gothic", 14), bg="#001F4B", fg="#0055FF", bd=0, width=29, show="*")
     sqlpass_passwordInput.pack(anchor=W, padx=20)
 
-    sqlpass_noteLabel = Label(sqlpass, text="Note: If no password is set, just click OK", font=("Century Gothic", 10), fg="#0055FF", bg="#000E20")
+    sqlpass_noteLabel = Label(sqlpass, text="Note: If no password is set, just click OK", font=("Century Gothic", 10), fg="white", bg="#000E20")
     sqlpass_noteLabel.pack(anchor=W, padx=20, pady=(5,10))
 
     def sqlpass_okButton_command():
@@ -633,7 +637,7 @@ def JMJSearch(usernameinput):
             if(search_fromselected_getvalue==" " or search_toselected_getvalue==" " or search_departselected_getvalue=="" or search_classselected_getvalue==" " or search_adultselected_getvalue==" " or search_childrenselected_getvalue==" "):
                 messagebox.showwarning("AirNow:Error", "Please fill in all fields")
             elif(search_fromselected_getvalue==search_toselected_getvalue):
-                messagebox.showwarning("AirNow:Error", "Departure and Destination location are matching, please choose correctly")
+                messagebox.showwarning("AirNow:Error", "From and To selections are matching, please choose again")
             else:
                 search_passengersselected_getvalue = str(int(search_adultselected_getvalue)+int(search_childrenselected_getvalue))
                 search_departselectedWeekday_getvalue = calendar.day_name[datetime.datetime.strptime(search_departselected_getvalue, '%d/%m/%Y').weekday()]
@@ -643,7 +647,7 @@ def JMJSearch(usernameinput):
             if(search_fromselected_getvalue==" " or search_toselected_getvalue==" " or search_departselected_getvalue=="" or search_returnselected_getvalue=="" or search_classselected_getvalue==" " or search_adultselected_getvalue==" " or search_childrenselected_getvalue==" "):
                 messagebox.showwarning("AirNow:Error", "Please fill in all fields")
             elif(search_fromselected_getvalue==search_toselected_getvalue):
-                messagebox.showwarning("AirNow:Error", "Departure and Destination location are matching, please choose correctly")
+                messagebox.showwarning("AirNow:Error", "From and To selections are matching, please choose again")
             else:
                 search_passengersselected_getvalue = str(int(search_adultselected_getvalue)+int(search_childrenselected_getvalue))
                 search_departselectedWeekday_getvalue = calendar.day_name[datetime.datetime.strptime(search_departselected_getvalue, '%d/%m/%Y').weekday()]
@@ -1045,7 +1049,7 @@ def JMJResult():
     result.after(1, result.attributes, "-alpha", 1.0)
     result.attributes("-topmost", True)
     result.title("AirNow: Your Search Results")
-    result.iconbitmap("Airicon_final.png")
+    result.iconbitmap("Airicon_final.ico")
     result.configure(bg='#000E20')
     result.deiconify()
 
