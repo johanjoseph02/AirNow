@@ -3,7 +3,7 @@
 # Team members: JOHAN MATHEW JOSEPH, ADVAY SAI INABATHINI, ADIT POTNIS               #
 # Project: AirNow (Airline Reservation System)                                       #
 # Version: v1.0                                                                      #
-# Total lines of code: 1,303                                                         #
+# Total lines of code: 1,407                                                         #
 #                                                                                    #
 #====================================================================================#
 #BELT A COMMENT HERE EVERYTIME YOU PUSH
@@ -14,6 +14,7 @@
 # Changed the importing part, using cmd directly to install instead of IDLE, lines of code down to 1295
 # changed button colors to #0055FF
 # changed logo, one warning message, no internet message
+# inserted graph
 #importing modules and catching exceptions
 try:
     from tkinter import *
@@ -29,6 +30,42 @@ import calendar
 import subprocess
 
 try:
+    #installing matplotlib if not present
+    try:
+        import matplotlib.pyplot as pl
+    except:
+        try:
+            print("=====================================\n\nInstalling matplotlib (required for project) (1)\n\n=====================================")
+            subprocess.Popen("pip install matplotlib").wait()#Installing matplotlib using cmd
+            import matplotlib.pyplot as pl
+        except:
+            try:
+                print("=====================================\n\nInstalling matplotlib (required for project) (2)\n\n=====================================")
+                subprocess.Popen("python -m pip install matplotlib").wait()#Installing matplotlib using cmd
+                import matplotlib.pyplot as pl
+            except:
+                print("=====================================\n\nInstalling matplotlib (required for project) (3)\n\n=====================================")
+                subprocess.Popen("python3 -m pip install matplotlib").wait()#Installing matplotlib using cmd
+                import matplotlib.pyplot as pl
+
+    #installing numpy if not present
+    try:
+        import numpy as np
+    except:
+        try:
+            print("=====================================\n\nInstalling numpy (required for project) (1)\n\n=====================================")
+            subprocess.Popen("pip install numpy").wait()#Installing numpy using cmd
+            import numpy as np
+        except:
+            try:
+                print("=====================================\n\nInstalling numpy (required for project) (2)\n\n=====================================")
+                subprocess.Popen("python -m pip install numpy").wait()#Installing numpy using cmd
+                import numpy as np
+            except:
+                print("=====================================\n\nInstalling numpy (required for project) (3)\n\n=====================================")
+                subprocess.Popen("python3 -m pip install numpy").wait()#Installing numpy using cmd
+                import numpy as np
+
     #installing tkcalendar if not present
     try:
         from tkcalendar import *
@@ -38,9 +75,14 @@ try:
             subprocess.Popen("pip install tkcalendar").wait()#Installing tkcalendar using cmd
             from tkcalendar import *
         except:
-            print("=====================================\n\nInstalling tkcalendar (required for project) (2)\n\n=====================================")
-            subprocess.Popen("python -m pip install tkcalendar").wait()#Installing tkcalendar using cmd
-            from tkcalendar import *
+            try:
+                print("=====================================\n\nInstalling tkcalendar (required for project) (2)\n\n=====================================")
+                subprocess.Popen("python -m pip install tkcalendar").wait()#Installing tkcalendar using cmd
+                from tkcalendar import *
+            except:
+                print("=====================================\n\nInstalling tkcalendar (required for project) (3)\n\n=====================================")
+                subprocess.Popen("python3 -m pip install tkcalendar").wait()#Installing tkcalendar using cmd
+                from tkcalendar import *
     
     #installing Pillow if not present
     try:
@@ -51,9 +93,14 @@ try:
             subprocess.Popen("pip install Pillow").wait()#Installing Pillow using cmd
             from PIL import ImageTk, Image
         except:
-            print("=====================================\n\nInstalling Pillow (required for project) (2)\n\n=====================================")
-            subprocess.Popen("python -m pip install Pillow").wait()#Installing Pillow using cmd
-            from PIL import ImageTk, Image
+            try:
+                print("=====================================\n\nInstalling Pillow (required for project) (2)\n\n=====================================")
+                subprocess.Popen("python -m pip install Pillow").wait()#Installing Pillow using cmd
+                from PIL import ImageTk, Image
+            except:
+                print("=====================================\n\nInstalling Pillow (required for project) (3)\n\n=====================================")
+                subprocess.Popen("python3 -m pip install Pillow").wait()#Installing Pillow using cmd
+                from PIL import ImageTk, Image
 
     #installing mysql-connector-python if not present
     try:
@@ -64,10 +111,14 @@ try:
             subprocess.Popen("pip install mysql-connector-python").wait()#Installing mysql-connector-python using cmd
             import mysql.connector
         except:
-            print("=====================================\n\nInstalling mysql-connector-python (required for project) (2)\n\n=====================================")
-            subprocess.Popen("python -m pip install mysql-connector-python").wait()#Installing mysql-connector-python using cmd
-            import mysql.connector
-
+            try:
+                print("=====================================\n\nInstalling mysql-connector-python (required for project) (2)\n\n=====================================")
+                subprocess.Popen("python -m pip install mysql-connector-python").wait()#Installing mysql-connector-python using cmd
+                import mysql.connector
+            except:
+                print("=====================================\n\nInstalling mysql-connector-python (required for project) (3)\n\n=====================================")
+                subprocess.Popen("python3 -m pip install mysql-connector-python").wait()#Installing mysql-connector-python using cmd
+                import mysql.connector
 except:
     print("====================================================================================================================================")
     print("====================================================================================================================================")
@@ -550,12 +601,13 @@ def JMJSearch(usernameinput):
     search = Tk()
     search.attributes("-alpha", 0.0)#making window transparent before GUI loads
     search.after(0, search.attributes, "-alpha", 1.0)
-    search.attributes("-topmost", True)
+    search.attributes("-topmost", False)
     search.title("AirNow: Search Flights")
     search.iconbitmap("Airicon_final.ico")
     search.configure(bg='#000E20')
 
     def search_Xpress():
+        pl.close()
         search.destroy()
         CalendarWindow.destroy()
         exit()
@@ -580,6 +632,7 @@ def JMJSearch(usernameinput):
     search_searchflightsLabel.grid(row=1, column=0, columnspan=2, sticky=W, padx=50, pady=(0,15))
 
     def search_exitButton_command():
+        pl.close()
         search.destroy()
         CalendarWindow.destroy()
 
@@ -597,6 +650,53 @@ def JMJSearch(usernameinput):
 
     search_existingbookButton = Button(search, text="Existing Bookings", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, cursor="hand2", command=search_existingbookButton_command)
     search_existingbookButton.grid(row=4, column=0, padx=50, pady=20, sticky=W)
+
+    def search_pricegraphButton_command():
+
+        flightdbconn_cursor.execute("select Username from allUsers")
+        search_allusersQuery = flightdbconn_cursor.fetchall()
+        search_allusersQuery_length = len(search_allusersQuery)
+
+        flightdbconn_cursor.execute("Select Username from allBookings")
+        search_allbookingsQuery = flightdbconn_cursor.fetchall()
+        search_allbookingsQuery_length = len(search_allbookingsQuery)
+
+        xaxis_allusers = []
+        yaxis_allbookings = []
+
+        for x in range(0, search_allusersQuery_length):
+            xaxis_allusers.append(search_allusersQuery[x][0])
+        for y in range(0, search_allbookingsQuery_length):
+            yaxis_allbookings.append(search_allbookingsQuery[y][0])
+        
+        yaxis_numbers = []
+
+        yaxis_numbers_counter = 0
+
+        for xnos in xaxis_allusers:
+            for ynos in yaxis_allbookings:
+                if(xnos==ynos):
+                    yaxis_numbers_counter += 1
+            yaxis_numbers.append(yaxis_numbers_counter)
+            yaxis_numbers_counter = 0
+
+        for xc in range(0, search_allusersQuery_length):
+            if(len(xaxis_allusers[xc])>=7):
+                xaxis_allusers[xc] = xaxis_allusers[xc][0:7]+".."
+        
+        pl.figure(num="AirNow: All User Bookings", facecolor="#000E20")
+
+        pl.xlabel("Users", fontname="Century Gothic", color="white")
+        pl.xticks(fontname="Century Gothic", color="#0055FF")
+
+        pl.ylabel("No. of Bookings", fontname="Century Gothic", color="white")
+        pl.yticks(ticks=np.arange(min(yaxis_numbers), max(yaxis_numbers)+1, 1.0), fontname="Century Gothic", color="#0055FF")
+
+        pl.bar(xaxis_allusers, yaxis_numbers, color="#001F4B")
+        pl.show()
+
+    search_pricegraphButton = Button(search, text="Bookings Graph", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, width=14, cursor="hand2", command=search_pricegraphButton_command)
+    search_pricegraphButton.grid(row=4, column=0, padx=(240,0), pady=20, sticky=W)
 
     def search_searchflightsButton_command():
         global search_wayselected_getvalue
@@ -965,9 +1065,8 @@ def JMJExisting():
     existing.configure(bg='#000E20')
 
     def existing_Xpress():
-        search.destroy()
+        search.deiconify()
         existing.destroy()
-        exit()
 
     existing.protocol('WM_DELETE_WINDOW', existing_Xpress)
 
@@ -983,8 +1082,8 @@ def JMJExisting():
 
     #Outter elements
     def existing_backButton_command():
-        existing.destroy()
         search.deiconify()
+        existing.destroy()
 
     existing_backButton = Button(existing, text="<", font=("Century Gothic", 25), fg="white", bg="#000E20", bd=0, activeforeground="#001F4B", activebackground="#000E20", width=0, cursor="hand2", command=existing_backButton_command)
     existing_backButton.grid(row=0, column=0, columnspan=2, sticky=W, padx=(28,50))
@@ -1044,6 +1143,7 @@ def JMJExisting():
 #THE SEARCH RESULTS WINDOW
 
 def JMJResult():
+    search.attributes("-topmost", True)
     result = Tk()
     result.attributes("-alpha", 0.0)#making window transparent before GUI loads
     result.after(1, result.attributes, "-alpha", 1.0)
@@ -1054,6 +1154,7 @@ def JMJResult():
     result.deiconify()
 
     def result_Xpress():
+        pl.close()
         search.destroy()
         result.destroy()
         exit()
@@ -1072,6 +1173,7 @@ def JMJResult():
 
     #Outter elements
     def result_backButton_command():
+        search.attributes("-topmost", False)
         result.destroy()
         search.deiconify()
 
@@ -1131,6 +1233,7 @@ def JMJResult():
                 flightdbconn_cursor.execute("insert into allbookings values(%s, %s, %s, %s, %s, %s, %s, %s, %s)", (search_fromselected_getvalue_temp+"    ", search_toselected_getvalue_temp+"     ", search_departselected_getvalue+"    ", "-One Way-      ", search_passengersselected_getvalue+"               ", search_mealselected_getvalue_temp+"         ", "Dep-"+result_departflightselected_getvalue[0:5]+" "+"Arr-"+result_departflightselected_getvalue[11:16]+"    ", "-One Way-", loginFrm_usernameInput_getvalue))
                 flightdbconn.commit()
 
+                search.attributes("-topmost", False)
                 result.destroy()
                 search.deiconify()
                 JMJDisplay("Seats successfully reserved", 70, 350, 15, 20)
@@ -1165,6 +1268,7 @@ def JMJResult():
                 flightdbconn_cursor.execute("insert into allbookings values(%s, %s, %s, %s, %s, %s, %s, %s, %s)", (search_fromselected_getvalue_temp+"    ", search_toselected_getvalue_temp+"     ", search_departselected_getvalue+"    ", search_returnselected_getvalue+"     ", search_passengersselected_getvalue+"               ", search_mealselected_getvalue_temp+"         ", "Dep-"+result_departflightselected_getvalue[0:5]+" "+"Arr-"+result_departflightselected_getvalue[11:16]+"    ", "Dep-"+result_returnflightselected_getvalue[0:5]+" "+"Arr-"+result_returnflightselected_getvalue[11:16], loginFrm_usernameInput_getvalue))
                 flightdbconn.commit()
 
+                search.attributes("-topmost", False)
                 result.destroy()
                 search.deiconify()
                 JMJDisplay("Seats successfully reserved", 70, 350, 15, 20)
