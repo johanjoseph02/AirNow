@@ -651,7 +651,7 @@ def JMJSearch(usernameinput):
     search_existingbookButton = Button(search, text="Existing Bookings", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, cursor="hand2", command=search_existingbookButton_command)
     search_existingbookButton.grid(row=4, column=0, padx=50, pady=20, sticky=W)
 
-    def search_pricegraphButton_command():
+    def search_bookingsgraphButton_command():
 
         flightdbconn_cursor.execute("select Username from allUsers")
         search_allusersQuery = flightdbconn_cursor.fetchall()
@@ -695,8 +695,8 @@ def JMJSearch(usernameinput):
         pl.bar(xaxis_allusers, yaxis_numbers, color="#001F4B")
         pl.show()
 
-    search_pricegraphButton = Button(search, text="Bookings Graph", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, width=14, cursor="hand2", command=search_pricegraphButton_command)
-    search_pricegraphButton.grid(row=4, column=0, padx=(240,0), pady=20, sticky=W)
+    search_bookingsgraphButton = Button(search, text="Bookings Graph", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, width=14, cursor="hand2", command=search_bookingsgraphButton_command)
+    search_bookingsgraphButton.grid(row=4, column=0, padx=(240,0), pady=20, sticky=W)
 
     def search_searchflightsButton_command():
         global search_wayselected_getvalue
