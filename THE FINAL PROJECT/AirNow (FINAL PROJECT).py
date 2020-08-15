@@ -3,7 +3,7 @@
 # Team members: JOHAN MATHEW JOSEPH, ADVAY SAI INABATHINI, ADIT POTNIS               #
 # Project: AirNow (Airline Reservation System)                                       #
 # Version: v1.0                                                                      #
-# Total lines of code: 1,407                                                         #
+# Total lines of code: 1,400                                                         #
 #                                                                                    #
 #====================================================================================#
 #BELT A COMMENT HERE EVERYTIME YOU PUSH
@@ -15,7 +15,9 @@
 # changed button colors to #0055FF
 # changed logo, one warning message, no internet message
 # inserted graph
+# solved matplotlib version problem 
 #importing modules and catching exceptions
+
 try:
     from tkinter import *
     from tkinter import ttk
@@ -30,23 +32,14 @@ import calendar
 import subprocess
 
 try:
-    #installing matplotlib if not present
-    try:
-        import matplotlib.pyplot as pl
-    except:
-        try:
-            print("=====================================\n\nInstalling matplotlib (required for project) (1)\n\n=====================================")
-            subprocess.Popen("pip install matplotlib").wait()#Installing matplotlib using cmd
-            import matplotlib.pyplot as pl
-        except:
-            try:
-                print("=====================================\n\nInstalling matplotlib (required for project) (2)\n\n=====================================")
-                subprocess.Popen("python -m pip install matplotlib").wait()#Installing matplotlib using cmd
-                import matplotlib.pyplot as pl
-            except:
-                print("=====================================\n\nInstalling matplotlib (required for project) (3)\n\n=====================================")
-                subprocess.Popen("python3 -m pip install matplotlib").wait()#Installing matplotlib using cmd
-                import matplotlib.pyplot as pl
+    #installing matplotlib 3.3.0
+    print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (1)\n\n=====================================")
+    subprocess.Popen("pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
+    print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (2)\n\n=====================================")
+    subprocess.Popen("python -m pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
+    print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (3)\n\n=====================================")
+    subprocess.Popen("python3 -m pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
+    import matplotlib.pyplot as pl
 
     #installing numpy if not present
     try:
@@ -156,7 +149,7 @@ def JMJProgress(progressText):
     progress_mainLabel = Label(progress, text=progressText, font=("Century Gothic", 12), bg="#000e20", fg="white", bd=0)
     progress_mainLabel.pack(pady=(15,10))
 
-    def ProgressFucntion(progCurrentValue):
+    def ProgressFunction(progCurrentValue):
         progress_Progressbar["value"]=progCurrentValue
 
     progMaxValue=100
@@ -167,7 +160,7 @@ def JMJProgress(progressText):
 
     for i in range(1, 201):
         progCurrentValue=progCurrentValue+0.5
-        progress_Progressbar.after(2, ProgressFucntion(progCurrentValue))
+        progress_Progressbar.after(2, ProgressFunction(progCurrentValue))
         progress_Progressbar.update()
 
     progress.destroy()
@@ -683,7 +676,7 @@ def JMJSearch(usernameinput):
         for xc in range(0, search_allusersQuery_length):
             if(len(xaxis_allusers[xc])>=7):
                 xaxis_allusers[xc] = xaxis_allusers[xc][0:7]+".."
-        
+
         pl.figure(num="AirNow: All User Bookings", facecolor="#000E20")
 
         pl.xlabel("Users", fontname="Century Gothic", color="white")
