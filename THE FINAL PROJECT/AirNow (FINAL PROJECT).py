@@ -188,7 +188,7 @@ def JMJDisplay(displayText, heightinput, widthinput, textsizeinput, padyinput):
 
     display.resizable(0,0)
 
-    display.after(3000, display.destroy) #destroy window after 1000 milliseconds
+    display.after(3000, display.destroy) #destroy window after 3000 milliseconds
 
     display_mainLabel = Label(display, text=displayText, font=("Century Gothic", textsizeinput), bg="#000e20", fg="white", bd=0)
     display_mainLabel.pack(pady=padyinput)
