@@ -115,9 +115,8 @@ try:
 except:
     print("====================================================================================================================================")
     print("====================================================================================================================================")
-    print("\nTHIS PROJECT REQUIRES A STABLE ACTIVE INTERNET CONNECTION AT FIRST")
-    print("\nReason: To automatically install the missing packages required to make this project work")
-    print("------> Once packages have been installed once on your device, internet connection is not required while running this program again")
+    print("\nTHIS PROJECT REQUIRES A STABLE ACTIVE INTERNET CONNECTION")
+    print("\nReason: To automatically install the missing packages required to make this project work & To update matplotlib")
     print("\n")
     print("\nPlease turn on your internet and re-execute the program")
     print("If you are seeing this error after doing so, your internet connection may not be stable")
