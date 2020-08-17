@@ -370,7 +370,7 @@ def JMJSplashScreen():
 
     splash.resizable(0,0)
 
-    splash.after(1500, splash.destroy) #destroy window after 1000 milliseconds
+    splash.after(1500, splash.destroy) #destroy window after 1500 milliseconds
 
     splash_Img = ImageTk.PhotoImage(Image.open("Airlogo_final.png"))
     splash_Label = Label(splash, image=splash_Img)
