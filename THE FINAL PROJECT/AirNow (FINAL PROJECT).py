@@ -33,13 +33,16 @@ import subprocess
 
 try:
     #installing matplotlib 3.3.0
-    print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (1)\n\n=====================================")
-    subprocess.Popen("pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
-    print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (2)\n\n=====================================")
-    subprocess.Popen("python -m pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
-    print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (3)\n\n=====================================")
-    subprocess.Popen("python3 -m pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
-    import matplotlib.pyplot as pl
+    try:
+        print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (1)\n\n=====================================")
+        subprocess.Popen("pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
+        print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (2)\n\n=====================================")
+        subprocess.Popen("python -m pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
+        import matplotlib.pyplot as pl
+    except:
+        print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (3)\n\n=====================================")
+        subprocess.Popen("python3 -m pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
+        import matplotlib.pyplot as pl
 
     #installing numpy if not present
     try:
