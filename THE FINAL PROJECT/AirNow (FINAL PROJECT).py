@@ -3,21 +3,11 @@
 # Team members: JOHAN MATHEW JOSEPH, ADVAY SAI INABATHINI, ADIT POTNIS               #
 # Project: AirNow (Airline Reservation System)                                       #
 # Version: v1.0                                                                      #
-# Total lines of code: 1,400                                                         #
+# Total lines of code: 1,392                                                         #
 #                                                                                    #
 #====================================================================================#
-#BELT A COMMENT HERE EVERYTIME YOU PUSH
-#changed ui colors
-    #000E20 dark
-    #001F4B semi dark
-    #0055FF light
-# Changed the importing part, using cmd directly to install instead of IDLE, lines of code down to 1295
-# changed button colors to #0055FF
-# changed logo, one warning message, no internet message
-# inserted graph
-# solved matplotlib version problem 
-#importing modules and catching exceptions
 
+#importing modules and catching exceptions
 try:
     from tkinter import *
     from tkinter import ttk
@@ -839,8 +829,8 @@ def JMJSearch(usernameinput):
     searchFrm_toOM.grid(row=2, column=1, padx=(0,90), pady=(20,0), sticky=E)
 
     #--->Separating line 2
-    searchFrm_sepline2 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
-    searchFrm_sepline2.grid(row=3, column=0, columnspan=2, padx=10)
+    searchFrm_sepline2Label = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
+    searchFrm_sepline2Label.grid(row=3, column=0, columnspan=2, padx=10)
 
     #Depart/Return 
 
@@ -933,8 +923,8 @@ def JMJSearch(usernameinput):
     searchFrm_returncalendarButton.grid(row=4, column=1, padx=(0,58), pady=(20,0), sticky=E)
 
     #--->Separating line 3
-    searchFrm_sepline3 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
-    searchFrm_sepline3.grid(row=5, column=0, columnspan=2, padx=10)
+    searchFrm_sepline3Label = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
+    searchFrm_sepline3Label.grid(row=5, column=0, columnspan=2, padx=10)
 
     #Class of Travel
 
@@ -967,8 +957,8 @@ def JMJSearch(usernameinput):
     searchFrm_classOM.grid(row=6, column=0, columnspan=2, padx=(0,88), pady=(20,0), sticky=E)
 
      #--->Separating line 4
-    searchFrm_sepline4 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
-    searchFrm_sepline4.grid(row=7, column=0, columnspan=2, padx=10)
+    searchFrm_sepline4Label = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
+    searchFrm_sepline4Label.grid(row=7, column=0, columnspan=2, padx=10)
 
     #Adults/Children
 
@@ -1031,8 +1021,8 @@ def JMJSearch(usernameinput):
     searchFrm_childrenOM.grid(row=8, column=1, padx=(0,87), pady=(20,0), sticky=E)
 
     #--->Separating line 5
-    searchFrm_sepline5 = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
-    searchFrm_sepline5.grid(row=9, column=0, columnspan=2, padx=10)
+    searchFrm_sepline5Label = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
+    searchFrm_sepline5Label.grid(row=9, column=0, columnspan=2, padx=10)
 
     #NonVeg/Veg
     foodSelected = IntVar()
