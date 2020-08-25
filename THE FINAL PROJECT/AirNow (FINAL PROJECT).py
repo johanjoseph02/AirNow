@@ -1305,11 +1305,11 @@ def JMJResult():
     resultOnwardFrm_onwardFrame.pack(anchor=W, padx=20, pady=(0,20))
     #--->
     #Inner Frame elements
-    onwardFrame_Scrollar = Scrollbar(resultOnwardFrm_onwardFrame, orient=VERTICAL, bg="#000E20", bd=0, width=12)
-    onwardFrame_Listbox = Listbox(resultOnwardFrm_onwardFrame, font=("Courier New", 12), bg="#000E20", fg="white", bd=0, highlightcolor="#000E20", selectbackground="white", selectforeground="#000E20", highlightbackground="#000E20", height=7, width=36, yscrollcommand=onwardFrame_Scrollar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
+    onwardFrame_Scrollbar = Scrollbar(resultOnwardFrm_onwardFrame, orient=VERTICAL, bg="#000E20", bd=0, width=12)
+    onwardFrame_Listbox = Listbox(resultOnwardFrm_onwardFrame, font=("Courier New", 12), bg="#000E20", fg="white", bd=0, highlightcolor="#000E20", selectbackground="white", selectforeground="#000E20", highlightbackground="#000E20", height=7, width=36, yscrollcommand=onwardFrame_Scrollbar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
     
-    onwardFrame_Scrollar.config(command=onwardFrame_Listbox.yview)
-    onwardFrame_Scrollar.pack(side=RIGHT,fill=Y)
+    onwardFrame_Scrollbar.config(command=onwardFrame_Listbox.yview)
+    onwardFrame_Scrollbar.pack(side=RIGHT,fill=Y)
     onwardFrame_Listbox.pack()
 
     flightdbconn_cursor.execute("select Departure, Arrival, Price from allflights where "+search_departselectedWeekday_getvalue+"=%s and FromAirport=%s and ToAirport=%s", (search_departselectedWeekday_getvalue, search_fromselected_getvalue, search_toselected_getvalue))
