@@ -1094,11 +1094,11 @@ def JMJExisting():
     #--->
 
     #Inner Frame elements
-    existingFrame_Scrollar = Scrollbar(existingFrm_existingFrame, orient=VERTICAL, bg="#000E20", bd=0, width=12)
-    existingFrame_Listbox = Listbox(existingFrm_existingFrame, font=("Courier New", 12), bg="#000E20", fg="white", bd=0, highlightcolor="#000E20", selectbackground="white", selectforeground="#000E20", highlightbackground="#000E20", height=15, width=135, yscrollcommand=existingFrame_Scrollar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
+    existingFrame_Scrollbar = Scrollbar(existingFrm_existingFrame, orient=VERTICAL, bg="#000E20", bd=0, width=12)
+    existingFrame_Listbox = Listbox(existingFrm_existingFrame, font=("Courier New", 12), bg="#000E20", fg="white", bd=0, highlightcolor="#000E20", selectbackground="white", selectforeground="#000E20", highlightbackground="#000E20", height=15, width=135, yscrollcommand=existingFrame_Scrollbar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
 
-    existingFrame_Scrollar.config(command=existingFrame_Listbox.yview)
-    existingFrame_Scrollar.pack(side=RIGHT,fill=Y)
+    existingFrame_Scrollbar.config(command=existingFrame_Listbox.yview)
+    existingFrame_Scrollbar.pack(side=RIGHT,fill=Y)
     existingFrame_Listbox.pack()
 
     #adding items to the listbox using a list
