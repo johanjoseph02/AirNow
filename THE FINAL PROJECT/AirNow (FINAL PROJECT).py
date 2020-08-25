@@ -1336,11 +1336,11 @@ def JMJResult():
     resultReturnFrm_returnFrame.pack(anchor=W, padx=20, pady=(0,20))
     #--->
     #Inner Frame elements
-    returnFrame_Scrollar = Scrollbar(resultReturnFrm_returnFrame, orient=VERTICAL, bg="#001F4B", bd=0, width=12)
-    returnFrame_Listbox = Listbox(resultReturnFrm_returnFrame, font=("Courier New", 12), bg="#000E20", fg="white", bd=0, highlightcolor="#000E20", selectbackground="white", selectforeground="#000E20", highlightbackground="#000E20", height=7, width=36, yscrollcommand=returnFrame_Scrollar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
+    returnFrame_Scrollbar = Scrollbar(resultReturnFrm_returnFrame, orient=VERTICAL, bg="#001F4B", bd=0, width=12)
+    returnFrame_Listbox = Listbox(resultReturnFrm_returnFrame, font=("Courier New", 12), bg="#000E20", fg="white", bd=0, highlightcolor="#000E20", selectbackground="white", selectforeground="#000E20", highlightbackground="#000E20", height=7, width=36, yscrollcommand=returnFrame_Scrollbar.set, selectmode=SINGLE, state=NORMAL, cursor="hand2", activestyle="none", exportselection=0)
     
-    returnFrame_Scrollar.config(command=returnFrame_Listbox.yview)
-    returnFrame_Scrollar.pack(side=RIGHT,fill=Y)
+    returnFrame_Scrollbar.config(command=returnFrame_Listbox.yview)
+    returnFrame_Scrollbar.pack(side=RIGHT,fill=Y)
     returnFrame_Listbox.pack()
 
     if(search_wayselected_getvalue=="One Way"):
