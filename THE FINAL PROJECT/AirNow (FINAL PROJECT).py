@@ -3,7 +3,7 @@
 # Team members: JOHAN MATHEW JOSEPH, ADVAY SAI INABATHINI, ADIT POTNIS               #
 # Project: AirNow (Airline Reservation System)                                       #
 # Version: v1.0                                                                      #
-# Total lines of code: 1,392                                                         #
+# Total lines of code: 1,348                                                         #
 #                                                                                    #
 #====================================================================================#
 
@@ -22,100 +22,61 @@ import calendar
 import subprocess
 
 try:
-    #installing matplotlib 3.3.0
-    try:
-        print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (1)\n\n=====================================")
-        subprocess.Popen("pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
-        print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (2)\n\n=====================================")
-        subprocess.Popen("python -m pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
-        import matplotlib.pyplot as pl
-    except:
-        print("=====================================\n\nUpdating matplotlib to 3.3.0 (required for project) (3)\n\n=====================================")
-        subprocess.Popen("python3 -m pip install matplotlib==3.3.0").wait()#Installing matplotlib 3.3.0 using cmd
-        import matplotlib.pyplot as pl
+    #updating to matplotlib 3.3.0
+    print("=====================================\n\n--> Updating matplotlib to 3.3.0\n\n=====================================")
+    subprocess.Popen("py -m pip install matplotlib==3.3.0").wait() #Updating matplotlib to v3.3.0 via pip cmd
+    import matplotlib.pyplot as pl
 
     #installing numpy if not present
     try:
         import numpy as np
     except:
-        try:
-            print("=====================================\n\nInstalling numpy (required for project) (1)\n\n=====================================")
-            subprocess.Popen("pip install numpy").wait()#Installing numpy using cmd
-            import numpy as np
-        except:
-            try:
-                print("=====================================\n\nInstalling numpy (required for project) (2)\n\n=====================================")
-                subprocess.Popen("python -m pip install numpy").wait()#Installing numpy using cmd
-                import numpy as np
-            except:
-                print("=====================================\n\nInstalling numpy (required for project) (3)\n\n=====================================")
-                subprocess.Popen("python3 -m pip install numpy").wait()#Installing numpy using cmd
-                import numpy as np
+        print("=====================================\n\n--> Installing numpy\n\n=====================================")
+        subprocess.Popen("py -m pip install numpy").wait() #Installing numpy via pip cmd
+        import numpy as np
 
     #installing tkcalendar if not present
     try:
         from tkcalendar import *
     except:
-        try:
-            print("=====================================\n\nInstalling tkcalendar (required for project) (1)\n\n=====================================")
-            subprocess.Popen("pip install tkcalendar").wait()#Installing tkcalendar using cmd
-            from tkcalendar import *
-        except:
-            try:
-                print("=====================================\n\nInstalling tkcalendar (required for project) (2)\n\n=====================================")
-                subprocess.Popen("python -m pip install tkcalendar").wait()#Installing tkcalendar using cmd
-                from tkcalendar import *
-            except:
-                print("=====================================\n\nInstalling tkcalendar (required for project) (3)\n\n=====================================")
-                subprocess.Popen("python3 -m pip install tkcalendar").wait()#Installing tkcalendar using cmd
-                from tkcalendar import *
+        print("=====================================\n\n--> Installing tkcalendar\n\n=====================================")
+        subprocess.Popen("py -m pip install tkcalendar").wait() #Installing tkcalendar via pip cmd
+        from tkcalendar import *
     
     #installing Pillow if not present
     try:
         from PIL import ImageTk, Image
     except:
-        try:
-            print("=====================================\n\nInstalling Pillow (required for project) (1)\n\n=====================================")
-            subprocess.Popen("pip install Pillow").wait()#Installing Pillow using cmd
-            from PIL import ImageTk, Image
-        except:
-            try:
-                print("=====================================\n\nInstalling Pillow (required for project) (2)\n\n=====================================")
-                subprocess.Popen("python -m pip install Pillow").wait()#Installing Pillow using cmd
-                from PIL import ImageTk, Image
-            except:
-                print("=====================================\n\nInstalling Pillow (required for project) (3)\n\n=====================================")
-                subprocess.Popen("python3 -m pip install Pillow").wait()#Installing Pillow using cmd
-                from PIL import ImageTk, Image
+        print("=====================================\n\n--> Installing Pillow\n\n=====================================")
+        subprocess.Popen("py -m pip install Pillow").wait() #Installing Pillow via pip cmd
+        from PIL import ImageTk, Image
 
     #installing mysql-connector-python if not present
     try:
         import mysql.connector
     except:
-        try:
-            print("=====================================\n\nInstalling mysql-connector-python (required for project) (1)\n\n=====================================")
-            subprocess.Popen("pip install mysql-connector-python").wait()#Installing mysql-connector-python using cmd
-            import mysql.connector
-        except:
-            try:
-                print("=====================================\n\nInstalling mysql-connector-python (required for project) (2)\n\n=====================================")
-                subprocess.Popen("python -m pip install mysql-connector-python").wait()#Installing mysql-connector-python using cmd
-                import mysql.connector
-            except:
-                print("=====================================\n\nInstalling mysql-connector-python (required for project) (3)\n\n=====================================")
-                subprocess.Popen("python3 -m pip install mysql-connector-python").wait()#Installing mysql-connector-python using cmd
-                import mysql.connector
+        print("=====================================\n\n--> Installing mysql-connector-python\n\n=====================================")
+        subprocess.Popen("py -m pip install mysql-connector-python").wait() #Installing mysql-connector-python via pip cmd
+        import mysql.connector
+
 except:
-    print("====================================================================================================================================")
-    print("====================================================================================================================================")
-    print("\nTHIS PROJECT REQUIRES A STABLE ACTIVE INTERNET CONNECTION")
-    print("\nReason: To automatically install the missing packages required to make this project work & To update matplotlib")
-    print("\n")
-    print("\nPlease turn on your internet and re-execute the program")
-    print("If you are seeing this error after doing so, your internet connection may not be stable")
-    print("\nTeam Members:\nJohan Mathew Joseph\nAdvay Sai Inabathini\nAdit Potnis")
-    print("\n====================================================================================================================================")
-    print("====================================================================================================================================")
+    print()
+    print()
+    print("============================================================================================================")
+    print("============================================================================================================")
+    print("|                                                                                                          |")
+    print("|                                        UNABLE TO EXECUTE PROGRAM                                         |")
+    print("|                                                                                                          |")
+    print("|     Potential Reasons: 1. Absence of stable active internet connection (affects downloading modules)     |")
+    print("|                        2. Pip is not installed in Python PATH (affects downloading modules)              |")
+    print("|                                                                                                          |")
+    print("|                                                                                                          |")
+    print("|                         Kindly check for these issues and re-execute the program                         |")
+    print("|                                                                                                          |")
+    print("============================================================================================================")
+    print("============================================================================================================")
+    print()
+    print()
     exit()
 #======================================================================================================================================
 #PROGRESS BAR
@@ -245,7 +206,7 @@ sqlpass_passwordcorrect = 0
 while(sqlpass_passwordcorrect==0):
     JMJSql()
     try:
-        flightdbconn = mysql.connector.connect(host="localhost", user="root", passwd=sqlpass_okButton_getvalue)
+        flightdbconn = mysql.connector.connect(host="localhost", user="root", passwd=sqlpass_okButton_getvalue, charset="utf8")
     except:
         dummy_sqlpass = Tk()
         dummy_sqlpass.withdraw()
@@ -259,16 +220,11 @@ while(sqlpass_passwordcorrect==0):
 #create mysql cursor
 flightdbconn_cursor = flightdbconn.cursor()
 
-#checking if database already exists
-flightdbconn_cursor.execute("show databases like %s", ("AirNow_flightsdb",))
-flightdb_exists = flightdbconn_cursor.fetchall()
+#dropping old database if it exists
+flightdbconn_cursor.execute("drop database IF EXISTS AirNow_flightsdb")
+flightdbconn_cursor.execute("create database AirNow_flightsdb")
 
-if(flightdb_exists==[]):
-    flightdbconn_cursor.execute("create database AirNow_flightsdb")
-else:
-    flightdbconn_cursor.execute("drop database AirNow_flightsdb")
-    flightdbconn_cursor.execute("create database AirNow_flightsdb")
-
+#using created database
 flightdbconn_cursor.execute("use AirNow_flightsdb")
 
 #inserting data into database
