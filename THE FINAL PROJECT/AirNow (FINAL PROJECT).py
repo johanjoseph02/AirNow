@@ -1,13 +1,12 @@
 #====================================================================================#
 #                                                                                    #
-# Team members: JOHAN MATHEW JOSEPH, ADVAY SAI INABATHINI, ADIT POTNIS               #
-# Project: AirNow (Airline Reservation System)                                       #
-# Version: v1.0                                                                      #
-# Total lines of code: 1,348                                                         #
+# Author: JOHAN MATHEW JOSEPH                                                        #
+# Project: AirNow                                                                    #
+# Version: v1.1                                                                      #
+# Total lines of code: 1,300                                                         #
 #                                                                                    #
 #====================================================================================#
 
-#importing modules and catching exceptions
 try:
     from tkinter import *
     from tkinter import ttk
@@ -58,8 +57,8 @@ try:
         print("=====================================\n\n--> Installing mysql-connector-python\n\n=====================================")
         subprocess.Popen("py -m pip install mysql-connector-python").wait() #Installing mysql-connector-python via pip cmd
         import mysql.connector
-
 except:
+    #Installation error
     print()
     print()
     print("============================================================================================================")
@@ -589,55 +588,8 @@ def JMJSearch(usernameinput):
         search.withdraw()
         JMJExisting()
 
-    search_existingbookButton = Button(search, text="Existing Bookings", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, cursor="hand2", command=search_existingbookButton_command)
+    search_existingbookButton = Button(search, text="Existing Bookings", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, width=20, cursor="hand2", command=search_existingbookButton_command)
     search_existingbookButton.grid(row=4, column=0, padx=50, pady=20, sticky=W)
-
-    def search_bookingsgraphButton_command():
-
-        flightdbconn_cursor.execute("select Username from allUsers")
-        search_allusersQuery = flightdbconn_cursor.fetchall()
-        search_allusersQuery_length = len(search_allusersQuery)
-
-        flightdbconn_cursor.execute("Select Username from allBookings")
-        search_allbookingsQuery = flightdbconn_cursor.fetchall()
-        search_allbookingsQuery_length = len(search_allbookingsQuery)
-
-        xaxis_allusers = []
-        yaxis_allbookings = []
-
-        for x in range(0, search_allusersQuery_length):
-            xaxis_allusers.append(search_allusersQuery[x][0])
-        for y in range(0, search_allbookingsQuery_length):
-            yaxis_allbookings.append(search_allbookingsQuery[y][0])
-        
-        yaxis_numbers = []
-
-        yaxis_numbers_counter = 0
-
-        for xnos in xaxis_allusers:
-            for ynos in yaxis_allbookings:
-                if(xnos==ynos):
-                    yaxis_numbers_counter += 1
-            yaxis_numbers.append(yaxis_numbers_counter)
-            yaxis_numbers_counter = 0
-
-        for xc in range(0, search_allusersQuery_length):
-            if(len(xaxis_allusers[xc])>=7):
-                xaxis_allusers[xc] = xaxis_allusers[xc][0:7]+".."
-
-        pl.figure(num="AirNow: All User Bookings", facecolor="#000E20")
-
-        pl.xlabel("Users", fontname="Century Gothic", color="white")
-        pl.xticks(fontname="Century Gothic", color="#0055FF")
-
-        pl.ylabel("No. of Bookings", fontname="Century Gothic", color="white")
-        pl.yticks(ticks=np.arange(min(yaxis_numbers), max(yaxis_numbers)+1, 1.0), fontname="Century Gothic", color="#0055FF")
-
-        pl.bar(xaxis_allusers, yaxis_numbers, color="#001F4B")
-        pl.show()
-
-    search_bookingsgraphButton = Button(search, text="Bookings Graph", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, width=14, cursor="hand2", command=search_bookingsgraphButton_command)
-    search_bookingsgraphButton.grid(row=4, column=0, padx=(240,0), pady=20, sticky=W)
 
     def search_searchflightsButton_command():
         global search_wayselected_getvalue
@@ -724,7 +676,6 @@ def JMJSearch(usernameinput):
     #--->Separating line 1
     searchFrm_sepline1Label = Label(searchFrm, text="______________________________________________________________________________________", font=("Century Gothic", 15), bg="#001F4B", fg="#000E20", )
     searchFrm_sepline1Label.grid(row=1, column=0, columnspan=2, padx=10)
-
 
     #From/To
 
@@ -1063,6 +1014,7 @@ def JMJExisting():
     existingFrame_Listbox_allrows = flightdbconn_cursor.fetchall()
     existingFrame_Listbox_rownum = len(existingFrame_Listbox_allrows)
     bookingsList = []
+
     for existingFrame_Listbox_counter in range(0, existingFrame_Listbox_rownum):
         existingFrame_Listbox_string = ''
         existingFrame_Listbox_string = existingFrame_Listbox_string + existingFrame_Listbox_allrows[existingFrame_Listbox_counter][0]
@@ -1214,7 +1166,6 @@ def JMJResult():
                 search.deiconify()
                 JMJDisplay("Seats successfully reserved", 70, 350, 15, 20)
 
-
     result_proceedButton = Button(result, text="Confirm Booking", font=("Century Gothic", 15), fg="white", bg="#0055FF", bd=0, width=20, cursor="hand2", command=result_proceedButton_command)
     result_proceedButton.grid(row=4, column=0, columnspan=2, padx=50, pady=20, sticky=E)
 
@@ -1233,8 +1184,6 @@ def JMJResult():
     resultOptionsFrm_passLabel.grid(row=2, column=0, padx=(33,0),pady=(10,20), sticky=W)
     resultOptionsFrm_passselectedLabel = Label(resultOptionsFrm, text=search_passengersselected_getvalue, font=("Century Gothic", 13), fg="white", bg="#000E20", width=20)
     resultOptionsFrm_passselectedLabel.grid(row=2, column=0, padx=(200,0),pady=(10,20), sticky=E)
-
-
 
     resultOptionsFrm_toLabel = Label(resultOptionsFrm, text="Trip:", font=("Century Gothic", 13), fg="white", bg="#001F4B")
     resultOptionsFrm_toLabel.grid(row=0, column=1, padx=(152,0),pady=(20,10), sticky=W)
@@ -1272,6 +1221,7 @@ def JMJResult():
     onwardFrame_Listbox_allrows = flightdbconn_cursor.fetchall()
     onwardFrame_Listbox_rownum = len(onwardFrame_Listbox_allrows)
     onwardList = []
+
     for onwardFrame_Listbox_counter in range(0, onwardFrame_Listbox_rownum):
         onwardFrame_Listbox_string = ''
         onwardFrame_Listbox_string = onwardFrame_Listbox_string + onwardFrame_Listbox_allrows[onwardFrame_Listbox_counter][0]+"      "
@@ -1307,6 +1257,7 @@ def JMJResult():
         returnFrame_Listbox_allrows = flightdbconn_cursor.fetchall()
         returnFrame_Listbox_rownum = len(returnFrame_Listbox_allrows)
         returnList = []
+
         for returnFrame_Listbox_counter in range(0, returnFrame_Listbox_rownum):
             returnFrame_Listbox_string = ''
             returnFrame_Listbox_string = returnFrame_Listbox_string + returnFrame_Listbox_allrows[returnFrame_Listbox_counter][0]+"      "
@@ -1342,7 +1293,8 @@ def JMJResult():
 #======================================================================================================================================
 #======================================================================================================================================
 #======================================================================================================================================
-#Search, Existing, Book flights part
 
 JMJSearch(loginFrm_usernameInput_getvalue)
+
+#Exit message
 JMJDisplay("Exiting\n\nThank You for using AirNow", 120, 350, 15, 20)
