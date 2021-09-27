@@ -1,2 +1,2 @@
 # AirNow
-Local Flight Reservation System
+Airline Reservation System
