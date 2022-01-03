@@ -4,7 +4,7 @@ Airline Reservation System made using Python Tkinter
 ## Features
 - Simple and Modern UI
 - MySQL integration
-<img src="assets/airnow_sqlpass2.png" width="200">
+<img src="assets/airnow_sqlpass2.png" width="200" style="align-self: center;">
 
 - User accounts and authentication
 ![airnow_login2](assets/airnow_login2.png)
