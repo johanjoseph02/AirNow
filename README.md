@@ -49,9 +49,11 @@ Airline Reservation System made using Python Tkinter
         2. Navigate **src** > **app.py**
         4. Select interpreter and click on the run icon
 
+
 NOTE: An error can be displayed under the following circumstances:
 1. Internet connection missing/unstable
 2. Pip absent in Python PATH (Python not included to PATH)
 
 ***IMPORTANT: ONLY COMPATIBLE WITH WINDOWS 7 and above***
+
 *MacOS and Linux are not supported due to Tkinter limitations*
