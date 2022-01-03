@@ -5,16 +5,24 @@ Airline Reservation System made using Python Tkinter
 - Simple and Modern UI
 - MySQL integration
 <p align="center">
-<img src="assets/airnow_sqlpass2.png" width="200" style="align-self: center;">
+    <img src="assets/airnow_sqlpass2.png" width="500" style="align-self: center;">
 </p>
 
 - User accounts and authentication
-![airnow_login2](assets/airnow_login2.png)
+<p align="center">
+    <img src="assets/airnow_login2.png" width="500" style="align-self: center;">
+</p>
 
 - Search for flights based on various criteria
-![airnow_search2](assets/airnow_search2.png)
-![airnow_result](assets/airnow_result.png)
+<p align="center">
+    <img src="assets/airnow_search2.png" width="500" style="align-self: center;">
+</p>
+<p align="center">
+    <img src="assets/airnow_result.png" width="500" style="align-self: center;">
+</p>
 
 
 - Check existing bookings
-![airnow_existing](assets/airnow_existing.png)
+<p align="center">
+    <img src="assets/airnow_existing.png" width="500" style="align-self: center;">
+</p>
